@@ -48,7 +48,7 @@ export function Footer() {
             </div>
             <p
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Google Sans', 'Inter', sans-serif",
                 fontSize: "14px",
                 fontWeight: 400,
                 lineHeight: "22px",
@@ -66,7 +66,7 @@ export function Footer() {
             <div className="flex flex-col items-start" style={{ gap: "16px", minWidth: "140px" }}>
               <p
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Google Sans', 'Google Sans', 'Inter', sans-serif",
                   fontSize: "14px",
                   fontWeight: 600,
                   letterSpacing: "0.5px",
@@ -96,7 +96,7 @@ export function Footer() {
                     target={undefined}
                     rel={undefined}
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Google Sans', 'Inter', sans-serif",
                       fontSize: "14px",
                       fontWeight: 400,
                       lineHeight: "21px",
@@ -117,7 +117,7 @@ export function Footer() {
             <div className="flex flex-col items-start" style={{ gap: "16px", minWidth: "140px" }}>
               <p
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Google Sans', 'Google Sans', 'Inter', sans-serif",
                   fontSize: "14px",
                   fontWeight: 600,
                   letterSpacing: "0.5px",
@@ -135,7 +135,7 @@ export function Footer() {
                       key={link}
                       to="/politica-de-privacidade"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "'Google Sans', 'Inter', sans-serif",
                         fontSize: "14px",
                         fontWeight: 400,
                         lineHeight: "21px",
@@ -153,7 +153,7 @@ export function Footer() {
                       key={link}
                       to="/termos"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "'Google Sans', 'Inter', sans-serif",
                         fontSize: "14px",
                         fontWeight: 400,
                         lineHeight: "21px",
@@ -171,7 +171,7 @@ export function Footer() {
                       key={link}
                       href="#"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "'Google Sans', 'Inter', sans-serif",
                         fontSize: "14px",
                         fontWeight: 400,
                         lineHeight: "21px",
@@ -203,7 +203,7 @@ export function Footer() {
         >
           <p
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: "'Google Sans', 'Inter', sans-serif",
               fontSize: "13px",
               fontWeight: 400,
               lineHeight: "19.5px",
@@ -214,7 +214,7 @@ export function Footer() {
           </p>
           <p
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: "'Google Sans', 'Inter', sans-serif",
               fontSize: "13px",
               fontWeight: 400,
               lineHeight: "19.5px",
