@@ -1,4 +1,4 @@
-import jazigoImg from "figma:asset/95a41ea9d816aee48de995766a5d0f54117782a4.png";
+import jazigoImg from "../../assets/hero-bg.png";
 import { motion } from "motion/react";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
 import { ButtonFlip } from "./ui/ButtonFlip";

@@ -3,6 +3,9 @@ import imgLapa from "figma:asset/fc327dd60e544345aa52c2b63d75329e9ab06d6f.png";
 import imgParelheiros from "figma:asset/2f1d62726cc42cc12a4e4edf77039db3b48d1564.png";
 import imgSaudade from "figma:asset/fe7b9e805228b0eb636a1dab76f22573c5dee6dc.png";
 import imgCampoGrande from "figma:asset/f96252e92aa1d51ca25eaa5118a3820d5ec9b390.png";
+import lapaBg from "../../assets/differentials-lapa.png";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { ScrollReveal } from "./ScrollReveal";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { ArrowUpRight } from "lucide-react";
@@ -161,6 +164,45 @@ function CemeteryCard({ cem, featured = false }: { cem: Cemetery; featured?: boo
   );
 }
 
+function ParallaxPhoto({ isMobile }: { isMobile: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  return (
+    <ScrollReveal delay={0.05}>
+      <div
+        ref={ref}
+        className="mt-16"
+        style={{
+          width: "100%",
+          height: isMobile ? "260px" : "440px",
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        <motion.img
+          src={lapaBg}
+          alt="Cemitério da Lapa — Grupo Maya"
+          style={{
+            y,
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "116%",
+            objectFit: "cover",
+            objectPosition: "center",
+            top: "-8%",
+          }}
+        />
+      </div>
+    </ScrollReveal>
+  );
+}
+
 export function Differentials() {
   const isMobile = useIsMobile();
 
@@ -220,33 +262,8 @@ export function Differentials() {
           </div>
         </ScrollReveal>
 
-        {/* FOTO INSTITUCIONAL — logo 3D */}
-        <ScrollReveal delay={0.05}>
-          <div
-            className="mt-16"
-            style={{
-              width: "100%",
-              height: isMobile ? "260px" : "440px",
-              background: "#f0efeb",
-              overflow: "hidden",
-              position: "relative",
-            }}
-          >
-            {/* substituir pelo import da foto quando disponível */}
-            <div
-              className="absolute inset-0 flex items-center justify-center"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "13px",
-                color: "#aaa",
-                letterSpacing: "1px",
-                textTransform: "uppercase",
-              }}
-            >
-              Foto com logo 3D
-            </div>
-          </div>
-        </ScrollReveal>
+        {/* FOTO INSTITUCIONAL — parallax */}
+        <ParallaxPhoto isMobile={isMobile} />
 
         {/* STATS — 4 números institucionais */}
         <ScrollReveal delay={0.1}>

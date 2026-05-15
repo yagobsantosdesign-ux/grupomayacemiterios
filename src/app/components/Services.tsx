@@ -69,23 +69,22 @@ const cemiteriais = [
 ];
 
 const CARD_BG = "#f0efeb";
-const ICON_COLOR = "#C8963E";
 
 type ServiceType = typeof funerarios[0];
 
-function ServiceCard({ svc, delay = 0 }: { svc: ServiceType; delay?: number }) {
+function ServiceCard({ svc, delay = 0, iconColor }: { svc: ServiceType; delay?: number; iconColor: string }) {
   const Icon = svc.icon;
   return (
     <ScrollReveal delay={delay} className="h-full">
       <Link
         to={`/servicos-funerarios#${svc.slug}`}
         className="group h-full flex flex-col justify-between p-8 md:p-10 transition-all duration-300 hover:brightness-95"
-        style={{ backgroundColor: CARD_BG, textDecoration: "none" }}
+        style={{ backgroundColor: CARD_BG, textDecoration: "none", minHeight: "380px" }}
       >
         <div>
           <div
             className="w-11 h-11 rounded-[8px] flex items-center justify-center mb-6"
-            style={{ backgroundColor: ICON_COLOR }}
+            style={{ backgroundColor: iconColor, transition: "background-color 0.3s ease" }}
           >
             <Icon style={{ fontSize: 20, color: "#fff" }} />
           </div>
@@ -111,7 +110,7 @@ function ServiceCard({ svc, delay = 0 }: { svc: ServiceType; delay?: number }) {
             {svc.description}
           </p>
           <span
-            className="inline-flex items-center gap-1 text-[#0a0a0a] group-hover:text-[#C8963E] transition-colors duration-200"
+            className="inline-flex items-center gap-1 text-[#0a0a0a] transition-colors duration-200"
             style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "1.8px", textTransform: "uppercase" }}
           >
             SAIBA MAIS
@@ -127,6 +126,10 @@ export function Services() {
   const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState<"funerarios" | "cemiteriais">("funerarios");
   const services = activeTab === "funerarios" ? funerarios : cemiteriais;
+  const isCemiterial = activeTab === "cemiteriais";
+  const iconColor = isCemiterial ? "#2B5E3A" : "#C8963E";
+  const ctaBg = isCemiterial ? "#C8963E" : "#2B5E3A";
+  const currentPhoto = isCemiterial ? imgPhoto2 : imgPhoto1;
 
   return (
     <section
@@ -200,7 +203,7 @@ export function Services() {
         {isMobile ? (
           <div className="flex flex-col gap-3">
             {services.map((svc, i) => (
-              <ServiceCard key={svc.slug} svc={svc} delay={i * 0.08} />
+              <ServiceCard key={svc.slug} svc={svc} delay={i * 0.08} iconColor={iconColor} />
             ))}
           </div>
         ) : (
@@ -210,21 +213,21 @@ export function Services() {
           >
             <ScrollReveal className="row-span-1">
               <div className="w-full h-full overflow-hidden" style={{ minHeight: "380px" }}>
-                <img src={imgPhoto1} alt="Grupo Maya — Cemitério" className="w-full h-full object-cover" style={{ display: "block" }} />
+                <img src={currentPhoto} alt="Grupo Maya — Cemitério" className="w-full h-full object-cover" style={{ display: "block", transition: "opacity 0.3s ease" }} />
               </div>
             </ScrollReveal>
 
-            <ServiceCard svc={services[0]} delay={0.05} />
-            <ServiceCard svc={services[1]} delay={0.1} />
-            <ServiceCard svc={services[2]} delay={0.12} />
-            <ServiceCard svc={services[3]} delay={0.17} />
+            <ServiceCard svc={services[0]} delay={0.05} iconColor={iconColor} />
+            <ServiceCard svc={services[1]} delay={0.1} iconColor={iconColor} />
+            <ServiceCard svc={services[2]} delay={0.12} iconColor={iconColor} />
+            <ServiceCard svc={services[3]} delay={0.17} iconColor={iconColor} />
 
             <ScrollReveal className="row-span-1">
               <Link
                 to="/servicos-funerarios"
                 onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                 className="group h-full flex flex-col justify-between p-8 md:p-10 transition-all duration-300 hover:brightness-95"
-                style={{ backgroundColor: "#2B5E3A", minHeight: "380px", textDecoration: "none" }}
+                style={{ backgroundColor: ctaBg, minHeight: "380px", textDecoration: "none", transition: "background-color 0.3s ease" }}
               >
                 <div>
                   <div

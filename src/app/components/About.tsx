@@ -1,4 +1,5 @@
-import image_e4fde5664b55b0d3de11ca02db1110cf2f39225f from 'figma:asset/e4fde5664b55b0d3de11ca02db1110cf2f39225f.png'
+import aboutPhoto from "../../assets/about-photo.png"
+import aboutBg from "../../assets/about-bg.png"
 import { useIsMobile } from "../hooks/useIsMobile";
 import { ScrollReveal } from "./ScrollReveal";
 import { ButtonFlip } from "./ui/ButtonFlip";
@@ -25,6 +26,12 @@ export function About() {
     <section
       id="sobre"
       className="bg-white relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${aboutBg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center bottom",
+        backgroundSize: "cover",
+      }}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
@@ -134,7 +141,7 @@ export function About() {
               style={{ minHeight: isMobile ? "240px" : "340px" }}
             >
               <img
-                src={image_e4fde5664b55b0d3de11ca02db1110cf2f39225f}
+                src={aboutPhoto}
                 alt="Grupo Maya — Cemitério"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
               />

@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { ScrollReveal } from "./ScrollReveal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import testimonialRl from "../../assets/testimonial-rl.png";
+import testimonialMa from "../../assets/testimonial-ma.png";
 
 const testimonials = [
   {
@@ -11,6 +13,7 @@ const testimonials = [
     role: "Família atendida — Cemitério Lapa",
     initials: "MA",
     color: "#2B5E3A",
+    photo: testimonialMa,
   },
   {
     id: 2,
@@ -19,6 +22,7 @@ const testimonials = [
     role: "Cliente — Jazigo Vertical, Lajeado",
     initials: "RL",
     color: "#C8963E",
+    photo: testimonialRl,
   },
   {
     id: 3,
@@ -95,21 +99,29 @@ export function Testimonials() {
           <div key={t.id} className="testimonial-card flex gap-4 flex-shrink-0">
             {/* Avatar card — 9:16 portrait ratio */}
             <div
-              className="flex-shrink-0 w-[140px] md:w-[180px] rounded-[4px] flex items-center justify-center"
+              className="flex-shrink-0 w-[140px] md:w-[180px] rounded-[4px] overflow-hidden flex items-center justify-center"
               style={{ background: t.color, aspectRatio: "9/16" }}
             >
-              <span
-                style={{
-                  fontFamily: "'Sorts Mill Goudy', serif",
-                  fontSize: "48px",
-                  fontWeight: 400,
-                  color: "rgba(255,255,255,0.35)",
-                  letterSpacing: "-2px",
-                  lineHeight: 1,
-                }}
-              >
-                {t.initials}
-              </span>
+              {t.photo ? (
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  className="w-full h-full object-cover object-center"
+                />
+              ) : (
+                <span
+                  style={{
+                    fontFamily: "'Sorts Mill Goudy', serif",
+                    fontSize: "48px",
+                    fontWeight: 400,
+                    color: "rgba(255,255,255,0.35)",
+                    letterSpacing: "-2px",
+                    lineHeight: 1,
+                  }}
+                >
+                  {t.initials}
+                </span>
+              )}
             </div>
 
             {/* Text card */}
