@@ -1,5 +1,6 @@
 import { ScrollReveal } from "./ScrollReveal";
 import { Download, Phone, FileText } from "lucide-react";
+import { ButtonFlip } from "./ui/ButtonFlip";
 
 export function PriceTable() {
   return (
@@ -57,15 +58,16 @@ export function PriceTable() {
 
             <ScrollReveal delay={0.2}>
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <a
+                <ButtonFlip
+                  as="a"
                   href="/tabela-de-precos.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-[4px] border-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                  className="px-6 py-3.5 rounded-[8px] border-2 hover:shadow-md"
+                  innerClassName="gap-2.5"
                   style={{
                     borderColor: "#C8963E",
                     background: "transparent",
-                    textDecoration: "none",
                     fontFamily: "'Inter', sans-serif",
                     fontSize: "14px",
                     fontWeight: 600,
@@ -74,13 +76,14 @@ export function PriceTable() {
                 >
                   <Download size={16} strokeWidth={2} />
                   Download da Tabela (PDF)
-                </a>
-                <a
+                </ButtonFlip>
+                <ButtonFlip
+                  as="a"
                   href="tel:08000429020"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-[4px] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
+                  className="px-6 py-3.5 rounded-[8px] hover:opacity-90"
+                  innerClassName="gap-2.5"
                   style={{
                     background: "#2B5E3A",
-                    textDecoration: "none",
                     fontFamily: "'Inter', sans-serif",
                     fontSize: "14px",
                     fontWeight: 600,
@@ -89,7 +92,7 @@ export function PriceTable() {
                 >
                   <Phone size={16} strokeWidth={2} />
                   0800 042 9020
-                </a>
+                </ButtonFlip>
               </div>
             </ScrollReveal>
           </div>

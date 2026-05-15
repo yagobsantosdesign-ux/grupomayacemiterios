@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-import { FloatingButtons } from "./FloatingButtons";
 import Lenis from "lenis";
 
 function ScrollToTop() {
@@ -42,7 +41,6 @@ export function RootLayout() {
       <div style={{ backgroundColor: "#0A0A0A" }}>
         <Footer />
       </div>
-      <FloatingButtons />
     </div>
   );
 }

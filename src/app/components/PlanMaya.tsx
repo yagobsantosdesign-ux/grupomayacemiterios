@@ -1,6 +1,7 @@
 import { ScrollReveal } from "./ScrollReveal";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ButtonFlip } from "./ui/ButtonFlip";
 
 const PLAN_IMAGE = "https://images.unsplash.com/photo-1683793485856-ddf257970d8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBmdW5lcmFsJTIwcGxhbm5pbmclMjBjb25zdWx0YXRpb258ZW58MXx8fHwxNzc0NDU1NjU5fDA&ixlib=rb-4.1.0&q=80&w=1080";
 
@@ -111,25 +112,25 @@ export function PlanMaya() {
 
             {/* CTA */}
             <ScrollReveal delay={0.28}>
-              <a
+              <ButtonFlip
+                as="a"
                 href="https://wa.me/5511934223751"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={trackWhatsAppConversion}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[4px] transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg"
+                className="px-6 py-3.5 rounded-[8px] hover:opacity-90 hover:shadow-lg"
+                innerClassName="gap-2.5"
                 style={{
                   background: "#C8963E",
-                  textDecoration: "none",
                   fontFamily: "'Inter', sans-serif",
                   fontSize: "14px",
                   fontWeight: 600,
                   color: "#ffffff",
-                  width: "fit-content",
                 }}
               >
                 <WhatsAppIcon />
                 Falar com um consultor
-              </a>
+              </ButtonFlip>
             </ScrollReveal>
           </div>
 

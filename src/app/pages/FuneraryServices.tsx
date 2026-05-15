@@ -378,7 +378,7 @@ export default function FuneraryServices() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={trackWhatsAppConversion}
-                  className="bg-white rounded-[4px]"
+                  className="bg-white rounded-[8px]"
                   style={{
                     width: "135px",
                     height: "48px",

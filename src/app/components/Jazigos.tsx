@@ -53,7 +53,7 @@ export function Jazigos() {
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
         {/* Header */}
-        <div className="flex flex-col gap-4 mb-14 max-w-[600px]">
+        <div className="flex flex-col gap-3 mb-14 max-w-[600px]">
           <ScrollReveal>
             <p
               style={{

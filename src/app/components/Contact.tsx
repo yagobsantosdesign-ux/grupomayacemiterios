@@ -303,7 +303,7 @@ export function Contact() {
                     as="button"
                     type="submit"
                     disabled={status === "loading" || status === "success"}
-                    className="w-full h-[48px] bg-[#C8963E] hover:bg-[#b5842f] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 text-white rounded-[4px]"
+                    className="w-full h-[48px] bg-[#0a0a0a] hover:bg-[#1e1e1e] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 text-white rounded-[8px]"
                     style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", fontWeight: 500, lineHeight: "24px" }}
                   >
                     {status === "loading" && "Enviando…"}

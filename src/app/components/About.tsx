@@ -1,25 +1,137 @@
 import image_e4fde5664b55b0d3de11ca02db1110cf2f39225f from 'figma:asset/e4fde5664b55b0d3de11ca02db1110cf2f39225f.png'
 import { useIsMobile } from "../hooks/useIsMobile";
 import { ScrollReveal } from "./ScrollReveal";
+import { ButtonFlip } from "./ui/ButtonFlip";
 
 const stats = [
-  { value: "5", label: "Cemitérios em\nSão Paulo" },
-  { value: "11", label: "Agências\nfunerárias" },
-  { value: "24h", label: "Atendimento\nininterrupto" },
-  { value: "100+", label: "Anos\nde história" },
+  { value: "120", suffix: "+", label: "Anos de história" },
+  { value: "24", suffix: "h", label: "Atendimento ininterrupto" },
 ];
+
+/* Leaf / sprout icon — decorative SVG similar to the reference */
+function LeafIcon() {
+  return (
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 4C18 4 6 10 6 20C6 26.627 11.373 32 18 32C18 32 18 20 30 14C24 14 18 4 18 4Z" fill="white" fillOpacity="0.35"/>
+      <path d="M18 32V18" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
 
 export function About() {
   const isMobile = useIsMobile();
+
   return (
-    <section id="sobre" className="py-24 md:py-32 bg-white">
+    <section
+      id="sobre"
+      className="bg-white relative overflow-hidden"
+    >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-[64px] items-center">
-          {/* Image */}
-          <ScrollReveal className="w-full lg:flex-1 min-w-0" direction="left">
+
+        {/* ── Two-column hero ── */}
+        <div className="flex flex-col lg:flex-row gap-0 lg:gap-[60px] items-stretch pt-24 md:pt-32 pb-16 md:pb-24">
+
+          {/* LEFT — label + heading + stats */}
+          <ScrollReveal
+            className="w-full lg:w-[62%] flex flex-col justify-between gap-10 lg:gap-0"
+            direction="left"
+          >
+            {/* Top: label + heading + CTA */}
+            <div>
+              {/* "O que fazemos" label */}
+              <div className="flex items-center gap-2 mb-6">
+                <p
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 500,
+                    letterSpacing: "2.4px",
+                    textTransform: "uppercase",
+                    fontSize: "12px",
+                    color: "#0a0a0a",
+                  }}
+                >
+                  O que fazemos
+                </p>
+              </div>
+
+              {/* Heading */}
+              <h2
+                className="mb-5"
+                style={{
+                  fontFamily: "'Sorts Mill Goudy', serif",
+                  fontSize: isMobile ? "34px" : "48px",
+                  fontWeight: 400,
+                  lineHeight: 1.15,
+                  letterSpacing: "-1.5px",
+                  color: "#0a0a0a",
+                }}
+              >
+                Dedicados a oferecer cuidado, conforto e dignidade.
+              </h2>
+
+              {/* CTA Button */}
+              <ButtonFlip
+                as="a"
+                href="#sobre"
+                className="rounded-[8px]"
+                style={{
+                  backgroundColor: "#0a0a0a",
+                  color: "#fff",
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 500,
+                  fontSize: "14px",
+                  padding: "14px 28px",
+                  letterSpacing: "0.3px",
+                }}
+              >
+                Sobre o Grupo
+              </ButtonFlip>
+            </div>
+
+            {/* Bottom: stats */}
+            <div className="flex gap-12">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "13px",
+                      color: "#6B6B6B",
+                      lineHeight: "18px",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    {stat.label}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "'Lora', serif",
+                      fontSize: isMobile ? "34px" : "48px",
+                      fontWeight: 400,
+                      letterSpacing: "-1px",
+                      color: "#0a0a0a",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {stat.value}
+                    <span style={{ fontSize: isMobile ? "20px" : "28px", letterSpacing: 0 }}>
+                      {stat.suffix}
+                    </span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* RIGHT — photo + info card */}
+          <ScrollReveal
+            className="w-full lg:w-[38%] flex flex-col"
+            direction="right"
+          >
+            {/* Photo */}
             <div
-              className="relative overflow-hidden w-full"
-              style={{ aspectRatio: "620/660" }}
+              className="relative overflow-hidden w-full flex-1"
+              style={{ minHeight: isMobile ? "240px" : "340px" }}
             >
               <img
                 src={image_e4fde5664b55b0d3de11ca02db1110cf2f39225f}
@@ -27,100 +139,50 @@ export function About() {
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
               />
             </div>
-          </ScrollReveal>
 
-          {/* Content */}
-          <div className="w-full lg:flex-1 min-w-0">
-            <ScrollReveal>
-              <p
-                className="text-[#0a0a0a] mb-4 text-[12px] md:text-[14px]"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 500,
-                  letterSpacing: "2.4px",
-                  textTransform: "uppercase",
-                }}
-              >SOBRE O GRUPO</p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.1}>
-              <h2
-                className="text-[#0a0a0a] mb-6"
-                style={{
-                  fontFamily: "'Sorts Mill Goudy', serif",
-                  fontSize: isMobile ? "34px" : "48px",
-                  fontWeight: 400,
-                  lineHeight: 1.2,
-                  letterSpacing: "-1.5px",
-                }}
-              >
-                O Grupo Maya nasceu
-                <br />
-                do cuidado
-              </h2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <p
-                className="text-[#575757] mb-6"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  lineHeight: "28px",
-                }}
-              >
-                Maya significa mãe. Assim como uma mãe, nos dedicamos a acolher, confortar e oferecer apoio completo às famílias em momentos de dor e luto. Nascemos a partir do Cemitério Lajeado — inaugurado em 1904 na Zona Leste de São Paulo — e crescemos com o propósito de cuidar.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.3}>
-              <p
-                className="text-[#575757] mb-10"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  lineHeight: "28px",
-                }}
-              >
-                Com atendimento 24 horas, infraestrutura completa e equipe treinada para acolher com respeito e sensibilidade, o Grupo Maya une tradição centenária a uma gestão moderna, oferecendo toda a gama de serviços funerários e cemiteriais.
-              </p>
-            </ScrollReveal>
-
-            {/* Stats */}
-            <ScrollReveal delay={0.4}>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <p
-                      className="text-[#C8963E]"
-                      style={{
-                        fontFamily: "'Plus Jakarta Sans', sans-serif",
-                        fontSize: "28px",
-                        fontWeight: 700,
-                        letterSpacing: "-1px",
-                      }}
-                    >
-                      {stat.value}
-                    </p>
-                    <p
-                      className="text-[#6B6B6B]"
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: "13px",
-                        fontWeight: 400,
-                        whiteSpace: "pre-line",
-                      }}
-                    >
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
+            {/* Card */}
+            <div
+              style={{
+                backgroundColor: "#2B5E3A",
+                padding: isMobile ? "28px 24px" : "36px 40px",
+              }}
+            >
+              <div className="mb-4">
+                <LeafIcon />
               </div>
-            </ScrollReveal>
-          </div>
+
+              <p
+                className="mb-5"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "26px",
+                  color: "#fff",
+                }}
+              >
+                O Grupo Maya nasceu com a missão de acolher famílias em momentos de dor, oferecendo serviços funerários e cemiteriais com respeito, tradição e cuidado humano.
+              </p>
+
+              <a
+                href="#sobre"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: "#fff",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
+              >
+                Saiba mais →
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
+
       </div>
     </section>
   );

@@ -4,7 +4,6 @@ import { About } from "../components/About";
 import { Services } from "../components/Services";
 import { Testimonials } from "../components/Testimonials";
 import { Differentials } from "../components/Differentials";
-import { Jazigos } from "../components/Jazigos";
 import { Agencies } from "../components/Agencies";
 import { Contact } from "../components/Contact";
 
@@ -26,7 +25,6 @@ export function Home() {
       <Services />
       <Testimonials />
       <Differentials />
-      <Jazigos />
       <Agencies />
       <Contact />
     </>

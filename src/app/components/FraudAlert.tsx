@@ -120,7 +120,6 @@ export function FraudAlert() {
                 }}
               >
                 <span className="text-[#C8963E]">Não realize</span> pagamentos
-                <br />
                 sem confirmar.
               </p>
 

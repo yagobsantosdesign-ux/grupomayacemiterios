@@ -161,7 +161,7 @@ export function Notices() {
             <h2
               style={{
                 fontFamily: "'Sorts Mill Goudy', serif",
-                fontSize: "clamp(28px, 3vw, 42px)",
+                fontSize: "clamp(28px, 3vw, 48px)",
                 fontWeight: 400,
                 lineHeight: 1.2,
                 letterSpacing: "-1px",

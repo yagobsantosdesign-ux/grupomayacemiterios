@@ -56,31 +56,32 @@ export function Testimonials() {
     <section
       id="depoimentos"
       className="py-24 md:py-32 overflow-hidden"
-      style={{ background: "#F7F6F2", borderTop: "1px solid rgba(229,229,229,0.5)" }}
+      style={{ background: "#fff", borderTop: "1px solid rgba(229,229,229,0.5)" }}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
-        {/* ── Header: title left, description right ── */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <div className="flex flex-col gap-3">
-            <ScrollReveal>
-              <p style={{ fontFamily: "'Google Sans', 'Google Sans', 'Inter', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "2.4px", textTransform: "uppercase", color: "#C8963E" }}>
-                DEPOIMENTOS
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", color: "#0a0a0a", maxWidth: "600px" }}>
-                O que as famílias
-                <br />
-                dizem sobre nós
-              </h2>
-            </ScrollReveal>
-          </div>
-          <ScrollReveal delay={0.12}>
-            <p style={{ fontFamily: "'Google Sans', 'Inter', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: "1.7", color: "#6b6b6b", maxWidth: "340px" }}>
-              Experiências reais de famílias que confiaram ao Grupo Maya um momento único e irreversível.
+        {/* ── Header: label left | title + description right ── */}
+        <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-[60px] mb-14">
+          {/* Label alone */}
+          <ScrollReveal className="md:w-[220px] flex-shrink-0 pt-1">
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "2.4px", textTransform: "uppercase", color: "#6b6b6b" }}>
+              DEPOIMENTOS
             </p>
           </ScrollReveal>
+
+          {/* Title + description */}
+          <div className="flex flex-col gap-3 flex-1">
+            <ScrollReveal delay={0.08}>
+              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", color: "#0a0a0a", maxWidth: "460px" }}>
+                O que as famílias dizem sobre nosso trabalho
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.12}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: "1.7", color: "#6b6b6b", maxWidth: "480px" }}>
+                Experiências reais de famílias que confiaram ao Grupo Maya um momento único e irreversível.
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
       </div>
 
@@ -92,10 +93,10 @@ export function Testimonials() {
       >
         {testimonials.map((t, i) => (
           <div key={t.id} className="testimonial-card flex gap-4 flex-shrink-0">
-            {/* Avatar card */}
+            {/* Avatar card — 9:16 portrait ratio */}
             <div
-              className="flex-shrink-0 w-[140px] md:w-[180px] self-stretch rounded-[4px] flex items-center justify-center"
-              style={{ background: t.color, minHeight: "260px" }}
+              className="flex-shrink-0 w-[140px] md:w-[180px] rounded-[4px] flex items-center justify-center"
+              style={{ background: t.color, aspectRatio: "9/16" }}
             >
               <span
                 style={{

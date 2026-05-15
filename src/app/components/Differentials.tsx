@@ -1,4 +1,3 @@
-import image_9e9e53106d3dba120f72b5f22c02a5a1218ef85c from 'figma:asset/9e9e53106d3dba120f72b5f22c02a5a1218ef85c.png'
 import imgLageado from "figma:asset/598a21b94e6c6990f8409e67be049272aed8c784.png";
 import imgLapa from "figma:asset/fc327dd60e544345aa52c2b63d75329e9ab06d6f.png";
 import imgParelheiros from "figma:asset/2f1d62726cc42cc12a4e4edf77039db3b48d1564.png";
@@ -6,324 +5,333 @@ import imgSaudade from "figma:asset/fe7b9e805228b0eb636a1dab76f22573c5dee6dc.png
 import imgCampoGrande from "figma:asset/f96252e92aa1d51ca25eaa5118a3820d5ec9b390.png";
 import { ScrollReveal } from "./ScrollReveal";
 import { useIsMobile } from "../hooks/useIsMobile";
-import svgPaths from "../../imports/svg-vghu6dqmcb";
 import { ArrowUpRight } from "lucide-react";
 
-const GOLD = "#E4B562";
+const GOLD = "#C8963E";
 
-const features = [
-  {
-    iconPaths: [
-      { d: svgPaths.p184f2c80 },
-      { d: "M10 18.3333V15.8333" },
-    ],
-    title: "5 Unidades na Cidade",
-    description:
-      "Cemitérios nas zonas Leste, Oeste e Sul de São Paulo, próximos à sua família em toda a cidade.",
-  },
-  {
-    iconPaths: [
-      { d: svgPaths.p1ecd6152 },
-      { d: svgPaths.p17796300 },
-    ],
-    title: "Infraestrutura Completa",
-    description:
-      "Velórios climatizados, atendimento 24h, estacionamento e acessibilidade total em todas as unidades.",
-  },
-  {
-    iconPaths: [
-      { d: svgPaths.p20d10600 },
-      { d: "M10 1.66667V3.33333" },
-      { d: "M10 16.6667V18.3333" },
-      { d: "M1.66667 10H3.33333" },
-      { d: "M16.6667 10H18.3333" },
-      { d: svgPaths.p2561cd80 },
-      { d: svgPaths.p1a2cf7c0 },
-      { d: svgPaths.p3d0afd40 },
-      { d: svgPaths.p18688e80 },
-    ],
-    title: "Atendimento Humanizado",
-    description:
-      "Equipe treinada para acolher famílias com respeito, empatia e apoio integral em momentos de luto.",
-  },
-  {
-    iconPaths: [
-      { d: svgPaths.p26ddc800 },
-      { d: svgPaths.p35ba4680 },
-    ],
-    title: "Concessão Municipal",
-    description:
-      "Administradora oficial de cemitérios municipais, credenciada e fiscalizada pela Prefeitura de São Paulo.",
-  },
+const stats = [
+  { prefix: "",   value: "25",  unit: "anos", label: "De concessão pública assegurada" },
+  { prefix: "",   value: "05",  unit: "",     label: "Cemitérios municipais gerenciados" },
+  { prefix: "",   value: "41",  unit: "ha",   label: "De área urbana gerenciada" },
+  { prefix: "R$", value: "192", unit: "mi",   label: "Em plano de investimentos contratuais" },
 ];
 
 const cemeteries = [
   {
-    name: "Cemitério Lajeado",
+    name: "Cemitério do Lageado",
     region: "Zona Leste",
+    area: "54.000 m²",
+    founded: "1904",
     img: imgLageado,
-    mapsUrl: "https://maps.google.com/?q=Estr.+do+Lajeado+Velho,+1490,+Guaianases,+São+Paulo,+SP",
+    href: "#",
   },
   {
     name: "Cemitério da Lapa",
     region: "Zona Oeste",
+    area: "75.000 m²",
+    founded: "1918",
     img: imgLapa,
-    mapsUrl: "https://maps.google.com/?q=R.+Bergson,+347,+Vila+Leopoldina,+São+Paulo,+SP",
+    href: "#",
   },
   {
     name: "Cemitério Campo Grande",
     region: "Zona Sul",
+    area: "145.000 m²",
+    founded: null,
     img: imgCampoGrande,
-    mapsUrl: "https://maps.google.com/?q=Av.+Nossa+Senhora+do+Sabará,+1371,+Campo+Grande,+São+Paulo,+SP",
+    href: "#",
   },
   {
     name: "Cemitério Parelheiros",
     region: "Zona Sul",
+    area: "48.000 m²",
+    founded: null,
     img: imgParelheiros,
-    mapsUrl: "https://maps.google.com/?q=Rua+Amaro+de+Pontes,+237,+Parelheiros,+São+Paulo,+SP",
+    href: "#",
   },
   {
     name: "Cemitério da Saudade",
     region: "Zona Leste",
+    area: "88.000 m²",
+    founded: null,
     img: imgSaudade,
-    mapsUrl: "https://maps.google.com/?q=Rua+Samuel+de+Carvalho,+60,+Jardim+São+Sebastião,+São+Paulo,+SP",
+    href: "#",
   },
 ];
 
-function FeatureCard({ feat, delay }: { feat: typeof features[0]; delay: number }) {
+type Cemetery = typeof cemeteries[0];
+
+function CemeteryCard({ cem, featured = false }: { cem: Cemetery; featured?: boolean }) {
   return (
-    <ScrollReveal delay={delay}>
-      <div className="flex flex-col gap-6">
-        {/* Icon box */}
+    <a
+      href={cem.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col overflow-hidden"
+      style={{
+        border: "1px solid #e8e8e8",
+        textDecoration: "none",
+        transition: "border-color 0.25s",
+        height: "100%",
+      }}
+      onMouseEnter={e => (e.currentTarget.style.borderColor = GOLD)}
+      onMouseLeave={e => (e.currentTarget.style.borderColor = "#e8e8e8")}
+    >
+      {/* Image */}
+      <div
+        className="relative overflow-hidden"
+        style={{ flex: 1, minHeight: featured ? "300px" : "160px" }}
+      >
+        <img
+          src={cem.img}
+          alt={cem.name}
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+        />
         <div
-          className="flex items-center justify-center flex-shrink-0"
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%)" }}
+        />
+        {/* Region badge */}
+        <span
+          className="absolute top-3 left-3 px-2 py-1"
           style={{
-            width: "44px",
-            height: "44px",
-            background: "rgba(255,255,255,0.1)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: "8px",
+            background: "rgba(43,94,58,0.9)",
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "10px",
+            fontWeight: 600,
+            letterSpacing: "1.2px",
+            textTransform: "uppercase",
+            color: "#fff",
           }}
         >
-          <svg viewBox="0 0 20 20" width="20" height="20" fill="none">
-            {feat.iconPaths.map((p, j) => (
-              <path
-                key={j}
-                d={p.d}
-                stroke={GOLD}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.66667"
-              />
-            ))}
-          </svg>
-        </div>
-
-        {/* Text */}
-        <div className="flex flex-col gap-1">
-          <p
-            className="text-white"
+          {cem.region}
+        </span>
+        {/* Founded badge */}
+        {cem.founded && (
+          <span
+            className="absolute top-3 right-3 px-2 py-1"
             style={{
-              fontFamily: "'Sorts Mill Goudy', serif",
-              fontSize: "20px",
-              fontWeight: 400,
-              letterSpacing: "-0.5px",
-              lineHeight: "36px",
+              background: "rgba(200,150,62,0.9)",
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "10px",
+              fontWeight: 600,
+              letterSpacing: "1px",
+              color: "#fff",
             }}
           >
-            {feat.title}
+            Desde {cem.founded}
+          </span>
+        )}
+      </div>
+
+      {/* Footer */}
+      <div
+        className="flex items-center justify-between px-4 py-4 flex-shrink-0"
+        style={{ borderTop: "1px solid #e8e8e8", background: "#fafafa" }}
+      >
+        <div className="flex flex-col gap-0.5">
+          <p
+            style={{
+              fontFamily: featured ? "'Sorts Mill Goudy', serif" : "'Inter', sans-serif",
+              fontSize: featured ? "18px" : "13px",
+              fontWeight: featured ? 400 : 500,
+              letterSpacing: featured ? "-0.3px" : "0px",
+              lineHeight: 1.3,
+              color: "#0a0a0a",
+            }}
+          >
+            {cem.name}
           </p>
           <p
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "15px",
-              fontWeight: 400,
-              lineHeight: "24px",
-              color: "rgba(255,255,255,0.7)",
+              fontSize: "12px",
+              color: "#6b6b6b",
             }}
           >
-            {feat.description}
+            {cem.area}
           </p>
         </div>
+        <ArrowUpRight
+          className="w-4 h-4 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          style={{ color: GOLD }}
+        />
       </div>
-    </ScrollReveal>
+    </a>
   );
 }
 
 export function Differentials() {
   const isMobile = useIsMobile();
+
   return (
     <section
       id="diferenciais"
       className="py-24 md:py-32"
-      style={{
-        background: "#22402b",
-        borderTopWidth: "1px",
-        borderTopStyle: "solid",
-        borderTopColor: GOLD,
-      }}
+      style={{ background: "#fff" }}
     >
-      {/* Anchor para "cemiterios" */}
       <div id="cemiterios" style={{ position: "relative", top: "-100px" }} />
 
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-[96px] lg:items-stretch">
 
-          {/* Left — Image */}
-          <ScrollReveal className="w-full lg:w-[480px] lg:shrink-0 lg:self-stretch" direction="left">
-            <div className="relative overflow-hidden w-full h-[420px] md:h-[520px] lg:h-full">
-              <img
-                src={image_9e9e53106d3dba120f72b5f22c02a5a1218ef85c}
-                alt="Grupo Maya — Diferenciais"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-              />
-            </div>
-          </ScrollReveal>
-
-          {/* Right — Text + 2×2 grid */}
-          <div className="w-full flex-1 min-w-0 flex flex-col justify-between gap-10 lg:py-2">
-            {/* Label + Heading */}
-            <div className="flex flex-col gap-4">
-              <ScrollReveal>
-                <p
-                   className="text-[12px] md:text-[14px]"
-                   style={{
-                     fontFamily: "'Inter', sans-serif",
-                     fontWeight: 500,
-                     letterSpacing: "2.4px",
-                     textTransform: "uppercase",
-                     color: "#FFFFFF",
-                   }}
-                 >
-                   POR QUE O GRUPO MAYA
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.1}>
-                <h2
-                   className="text-white"
-                   style={{
-                     fontFamily: "'Sorts Mill Goudy', serif",
-                     fontSize: isMobile ? "34px" : "48px",
-                     fontWeight: 400,
-                     lineHeight: 1.2,
-                     letterSpacing: "-1.5px",
-                   }}
-                 >
-                  Compromisso com
-                  <br />sua família
-                </h2>
-              </ScrollReveal>
-            </div>
-
-            {/* 2×2 grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {features.map((feat, i) => (
-                <FeatureCard key={feat.title} feat={feat} delay={0.15 + i * 0.08} />
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-        {/* ── Nossas Unidades strip ── */}
-        <ScrollReveal delay={0.1}>
-          <div
-            className="mt-16 pt-12"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
-          >
-            {/* Strip header */}
-            <div className="flex items-center justify-between mb-6">
+        {/* HEADER — padrão da memória: label esquerda, título + descrição direita */}
+        <ScrollReveal>
+          <div className="flex flex-col md:flex-row gap-6 md:gap-[60px]">
+            <p
+              className="md:w-[220px] md:flex-shrink-0 md:pt-1"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "12px",
+                fontWeight: 500,
+                letterSpacing: "2.4px",
+                textTransform: "uppercase",
+                color: "#6b6b6b",
+              }}
+            >
+              Por que o Grupo Maya
+            </p>
+            <div className="flex-1 flex flex-col gap-3">
+              <h2
+                style={{
+                  fontFamily: "'Sorts Mill Goudy', serif",
+                  fontSize: isMobile ? "34px" : "48px",
+                  fontWeight: 400,
+                  lineHeight: 1.15,
+                  letterSpacing: "-1.5px",
+                  color: "#0a0a0a",
+                  maxWidth: "680px",
+                }}
+              >
+                A maior administradora de cemitérios públicos da cidade<br />de São Paulo.
+              </h2>
               <p
                 style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "11px",
-                  fontWeight: 600,
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.5)",
+                  fontSize: "15px",
+                  fontWeight: 400,
+                  lineHeight: "24px",
+                  color: "#575757",
+                  maxWidth: "520px",
                 }}
               >
-                Nossas Unidades — 5 cemitérios em São Paulo
+                Com 5 unidades, 41 hectares de área urbana e 25 anos de concessão assegurados, o Grupo Maya carrega a responsabilidade de atender as famílias paulistanas com a seriedade que essa missão exige.
               </p>
             </div>
+          </div>
+        </ScrollReveal>
 
-            {/* 5 mini-cards */}
+        {/* FOTO INSTITUCIONAL — logo 3D */}
+        <ScrollReveal delay={0.05}>
+          <div
+            className="mt-16"
+            style={{
+              width: "100%",
+              height: isMobile ? "260px" : "440px",
+              background: "#f0efeb",
+              overflow: "hidden",
+              position: "relative",
+            }}
+          >
+            {/* substituir pelo import da foto quando disponível */}
             <div
-              className="grid gap-3"
-              style={{ gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(5, 1fr)" }}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "13px",
+                color: "#aaa",
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+              }}
             >
-              {cemeteries.map((cem, i) => (
-                <ScrollReveal key={cem.name} delay={0.05 + i * 0.06}>
-                  <a
-                    href={cem.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative flex flex-col overflow-hidden"
-                    style={{
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      textDecoration: "none",
-                      transition: "border-color 0.25s",
-                    }}
-                    onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(200,150,62,0.6)")}
-                    onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
-                  >
-                    {/* Image */}
-                    <div className="relative w-full overflow-hidden" style={{ height: "130px" }}>
-                      <img
-                        src={cem.img}
-                        alt={cem.name}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                      />
-                      {/* Overlay */}
-                      <div
-                        className="absolute inset-0"
-                        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)" }}
-                      />
-                      {/* Region badge */}
-                      <span
-                        className="absolute top-2 left-2 px-2 py-0.5"
-                        style={{
-                          background: "rgba(43,94,58,0.9)",
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: "9px",
-                          fontWeight: 600,
-                          letterSpacing: "1.2px",
-                          textTransform: "uppercase",
-                          color: "#fff",
-                        }}
-                      >
-                        {cem.region}
-                      </span>
-                    </div>
+              Foto com logo 3D
+            </div>
+          </div>
+        </ScrollReveal>
 
-                    {/* Name */}
-                    <div
-                      className="flex items-center justify-between px-3 py-3"
-                      style={{ background: "rgba(255,255,255,0.04)" }}
-                    >
-                      <p
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: "12px",
-                          fontWeight: 500,
-                          lineHeight: "16px",
-                          color: "rgba(255,255,255,0.85)",
-                        }}
-                      >
-                        {cem.name}
-                      </p>
-                      <ArrowUpRight
-                        className="w-3.5 h-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                        style={{ color: GOLD }}
-                      />
-                    </div>
-                  </a>
-                </ScrollReveal>
+        {/* STATS — 4 números institucionais */}
+        <ScrollReveal delay={0.1}>
+          <div className="mt-16 pt-12" style={{ borderTop: "1px solid #e8e8e8" }}>
+            <div className="grid grid-cols-2 md:grid-cols-4">
+              {stats.map((s, i) => (
+                <div
+                  key={i}
+                  className="py-6 md:py-0"
+                  style={{
+                    borderLeft: i > 0 ? "1px solid #e8e8e8" : undefined,
+                    paddingLeft: i > 0 ? "32px" : undefined,
+                    paddingRight: i < stats.length - 1 ? "32px" : undefined,
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "13px",
+                      color: "#6B6B6B",
+                      lineHeight: "18px",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    {s.label}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "'Lora', serif",
+                      fontSize: isMobile ? "34px" : "48px",
+                      fontWeight: 400,
+                      letterSpacing: "-1px",
+                      color: "#0a0a0a",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {s.prefix}{s.value}
+                    {s.unit && (
+                      <span style={{ fontSize: isMobile ? "20px" : "28px", letterSpacing: 0 }}>
+                        {s.unit}
+                      </span>
+                    )}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </ScrollReveal>
+
+        {/* CEMETERY SHOWCASE */}
+        <div className="mt-16 pt-12" style={{ borderTop: "1px solid #e8e8e8" }}>
+          <ScrollReveal>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "12px",
+                fontWeight: 500,
+                letterSpacing: "2.4px",
+                textTransform: "uppercase",
+                color: "#6b6b6b",
+                marginBottom: "20px",
+              }}
+            >
+              Nossas 5 unidades em São Paulo
+            </p>
+          </ScrollReveal>
+
+          {/* Campo Grande em destaque (maior, 145k m²) + 2×2 grid */}
+          <div className="flex flex-col lg:flex-row lg:items-stretch gap-3">
+            <ScrollReveal
+              className="lg:w-[42%] lg:flex-shrink-0 lg:self-stretch"
+              direction="left"
+            >
+              <CemeteryCard cem={cemeteries[2]} featured />
+            </ScrollReveal>
+
+            <div className="flex-1 grid grid-cols-2 gap-3">
+              {[cemeteries[0], cemeteries[1], cemeteries[3], cemeteries[4]].map((cem, i) => (
+                <ScrollReveal key={cem.name} delay={0.08 + i * 0.06} className="h-full">
+                  <CemeteryCard cem={cem} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>

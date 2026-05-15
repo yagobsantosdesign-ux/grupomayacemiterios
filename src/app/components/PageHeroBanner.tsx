@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
+import { ButtonFlip } from "./ui/ButtonFlip";
 
 // ─── WhatsApp SVG ─────────────────────────────────────────────────────────────
 function WhatsAppIcon() {
@@ -159,15 +160,16 @@ export function PageHeroBanner({
             {/* CTA */}
             {cta &&
               (isExternalLink ? (
-                <a
+                <ButtonFlip
+                  as="a"
                   href={cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleCtaClick}
-                  className="inline-flex items-center gap-2.5 px-5 py-[10px] rounded-[4px] transition-all duration-200 hover:opacity-88 hover:-translate-y-0.5"
+                  className="px-5 py-[10px] rounded-[8px] hover:opacity-88"
+                  innerClassName="gap-2.5"
                   style={{
                     ...ctaBgStyle,
-                    textDecoration: "none",
                     fontFamily: "'Inter', sans-serif",
                     fontSize: "13.5px",
                     fontWeight: 600,
@@ -177,11 +179,13 @@ export function PageHeroBanner({
                 >
                   {cta.whatsapp && <WhatsAppIcon />}
                   {cta.label}
-                </a>
+                </ButtonFlip>
               ) : (
-                <button
+                <ButtonFlip
+                  as="button"
                   onClick={handleCtaClick}
-                  className="inline-flex items-center gap-2.5 px-5 py-[10px] rounded-[4px] transition-all duration-200 hover:opacity-88 hover:-translate-y-0.5"
+                  className="px-5 py-[10px] rounded-[8px] hover:opacity-88"
+                  innerClassName="gap-2.5"
                   style={{
                     ...ctaBgStyle,
                     fontFamily: "'Inter', sans-serif",
@@ -189,12 +193,11 @@ export function PageHeroBanner({
                     fontWeight: 600,
                     color: "#ffffff",
                     letterSpacing: "0.2px",
-                    cursor: "pointer",
                   }}
                 >
                   {cta.whatsapp && <WhatsAppIcon />}
                   {cta.label}
-                </button>
+                </ButtonFlip>
               ))}
           </motion.div>
         </div>

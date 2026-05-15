@@ -519,7 +519,7 @@ Tipo da Sepultura: ${tipoSepultura}
                         </label>
                         <div className="flex items-center gap-3 flex-wrap">
                           <label
-                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[4px] cursor-pointer transition-colors bg-[#C8963E] hover:bg-[#b5842f]"
+                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[4px] cursor-pointer transition-colors bg-[#0a0a0a] hover:bg-[#1e1e1e]"
                             style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", fontWeight: 500, color: "#fff" }}
                           >
                             <input
@@ -570,7 +570,7 @@ Tipo da Sepultura: ${tipoSepultura}
                       as="button"
                       type="submit"
                       disabled={status === "loading" || status === "success"}
-                      className="w-full h-[48px] bg-[#C8963E] hover:bg-[#b5842f] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 text-white rounded-[4px]"
+                      className="w-full h-[48px] bg-[#0a0a0a] hover:bg-[#1e1e1e] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 text-white rounded-[4px]"
                       style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", fontWeight: 600, letterSpacing: "1.2px", textTransform: "uppercase" }}
                     >
                       {status === "loading" && "Enviando…"}

@@ -143,7 +143,7 @@ export function Cemeteries() {
 
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
-          <div className="flex flex-col gap-4 max-w-[540px]">
+          <div className="flex flex-col gap-3 max-w-[540px]">
             <ScrollReveal>
               <p
                 style={{
@@ -170,9 +170,7 @@ export function Cemeteries() {
                   color: "#0a0a0a",
                 }}
               >
-                Presença em toda
-                <br />
-                a cidade de São Paulo
+                Presença em toda a cidade de São Paulo
               </h2>
             </ScrollReveal>
           </div>
