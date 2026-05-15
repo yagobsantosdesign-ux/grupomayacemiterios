@@ -209,10 +209,10 @@ export function Services() {
         ) : (
           <div
             className="grid gap-2"
-            style={{ gridTemplateColumns: "repeat(3, 1fr)", gridTemplateRows: "repeat(2, 1fr)" }}
+            style={{ gridTemplateColumns: "repeat(3, 1fr)", gridTemplateRows: "repeat(2, 400px)" }}
           >
             <ScrollReveal className="row-span-1">
-              <div className="w-full h-full overflow-hidden" style={{ minHeight: "380px" }}>
+              <div className="w-full h-full overflow-hidden">
                 <img src={currentPhoto} alt="Grupo Maya — Cemitério" className="w-full h-full object-cover" style={{ display: "block", transition: "opacity 0.3s ease" }} />
               </div>
             </ScrollReveal>
