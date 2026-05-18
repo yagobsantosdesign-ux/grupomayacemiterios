@@ -1,5 +1,7 @@
 import imgLogos1 from "figma:asset/fcc44f60bdc2306d6ee576b97d7d54d9e9ae234e.png";
+import logoWordmark from "../../assets/logo-footer-wordmark.svg";
 import { Link, useLocation, useNavigate } from "react-router";
+import { scrollToSection } from "../utils/scroll";
 
 const institutionalLinks = ["Sobre nós", "Cemitérios", "Serviços"];
 const legalLinks = ["Política de Privacidade", "Termos de Uso"];
@@ -11,9 +13,7 @@ export function Footer() {
   const handleSectionLink = (sectionId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
-      setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-      }, 50);
+      scrollToSection(sectionId);
     } else {
       sessionStorage.setItem("scrollTarget", sectionId);
       navigate("/");
@@ -23,7 +23,7 @@ export function Footer() {
   return (
     <footer
       className="flex flex-col items-center w-full"
-      style={{ background: "#0a0a0a", gap: "48px", paddingTop: "56px", paddingBottom: "56px" }}
+      style={{ background: "#0a0a0a", gap: "40px", paddingTop: "56px", paddingBottom: "0" }}
     >
       {/* ── Top: Logo + Nav columns ── */}
       <div
@@ -190,6 +190,16 @@ export function Footer() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ── Wordmark ── */}
+      <div className="mx-auto px-5 md:px-[52px] w-full" style={{ maxWidth: "1338px", paddingTop: "48px" }}>
+        <img
+          src={logoWordmark}
+          alt="Grupo Maya"
+          className="w-full"
+          style={{ display: "block", objectFit: "contain", opacity: 0.09 }}
+        />
       </div>
 
       {/* ── Bottom bar ── */}

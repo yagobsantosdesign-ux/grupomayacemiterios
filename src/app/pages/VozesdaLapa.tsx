@@ -91,19 +91,19 @@ export default function VozesdaLapa() {
       />
 
       {/* ── Intro ── */}
-      <section className="py-20 md:py-28 bg-white border-b border-[#e8e8e4]">
+      <section className="py-24 md:py-32 bg-white border-b border-[#e8e8e4]">
         <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
             {/* Left */}
             <div className="flex flex-col gap-5 lg:w-[420px] flex-shrink-0">
               <ScrollReveal>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "2.4px", textTransform: "uppercase", color: "#C8963E" }}>
                   O que é o projeto
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Preservando memórias além do tempo
                 </h2>
               </ScrollReveal>
@@ -161,14 +161,14 @@ export default function VozesdaLapa() {
       </section>
 
       {/* ── Highlights ── */}
-      <section className="py-20 md:py-28 bg-[#fbfbf9] border-b border-[#e8e8e4]">
+      <section className="py-24 md:py-32 bg-[#fbfbf9] border-b border-[#e8e8e4]">
         <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
           <ScrollReveal>
             <div className="flex flex-col gap-2 mb-14">
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "2.4px", textTransform: "uppercase", color: "#C8963E" }}>
                 Como funciona
               </p>
-              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
+              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                 Uma experiência única, gratuita e cultural
               </h2>
             </div>
@@ -177,7 +177,7 @@ export default function VozesdaLapa() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {highlights.map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 0.08}>
-                <div className="flex flex-col gap-4 p-6 bg-white border border-[#e8e8e4] h-full">
+                <div className="flex flex-col gap-4 p-6 bg-white border border-[#e8e8e4] rounded-[4px] h-full">
                   <div
                     className="w-10 h-10 flex items-center justify-center flex-shrink-0"
                     style={{ background: "#2B5E3A", borderRadius: "8px" }}
@@ -200,14 +200,14 @@ export default function VozesdaLapa() {
       </section>
 
       {/* ── Figures / Stories ── */}
-      <section className="py-20 md:py-28 bg-white border-b border-[#e8e8e4]">
+      <section className="py-24 md:py-32 bg-white border-b border-[#e8e8e4]">
         <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
           <ScrollReveal>
             <div className="flex flex-col gap-2 mb-14">
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "2.4px", textTransform: "uppercase", color: "#C8963E" }}>
                 Memórias que habitam o cemitério
               </p>
-              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
+              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                 Histórias para nunca esquecer
               </h2>
             </div>
@@ -286,19 +286,19 @@ export default function VozesdaLapa() {
       </section>
 
       {/* ── Como participar ── */}
-      <section className="py-20 md:py-28 bg-[#fbfbf9] border-b border-[#e8e8e4]">
+      <section className="py-24 md:py-32 bg-[#fbfbf9] border-b border-[#e8e8e4]">
         <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
             {/* Left */}
             <div className="flex flex-col gap-5 lg:w-[420px] flex-shrink-0">
               <ScrollReveal>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "2.4px", textTransform: "uppercase", color: "#C8963E" }}>
                   Como participar
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Reserve seu lugar na próxima visita
                 </h2>
               </ScrollReveal>
@@ -406,15 +406,15 @@ export default function VozesdaLapa() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
           <ScrollReveal>
             <div className="flex flex-col md:flex-row gap-10 md:gap-0 items-start md:items-center justify-between">
               <div className="flex flex-col gap-3 max-w-[560px]">
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "2.4px", textTransform: "uppercase", color: "#C8963E" }}>
                   Próximas edições
                 </p>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Garanta sua vaga na próxima visita noturna
                 </h2>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "27px", color: "#575757" }}>

@@ -1,6 +1,4 @@
-import { Link } from "react-router";
 import { Phone, MessageCircle, MapPin, ExternalLink } from "lucide-react";
-import { useIsMobile } from "../hooks/useIsMobile";
 import { trackWhatsAppConversion } from "../components/GoogleAnalytics";
 import { PageHeroBanner } from "../components/PageHeroBanner";
 
@@ -11,16 +9,19 @@ const sections = [
     id: 1,
     title: "Quem somos",
     content: (
-      <p>
-        O Cemitério Lajeado, administrado pelo Grupo Maya, está localizado na{" "}
-        <strong>Estrada do Lajeado Velho, nº 1490 – Vila Independente, São Paulo – SP</strong>.
-        Somos responsáveis pelo tratamento dos dados pessoais coletados por meio deste site e dos nossos
-        canais de atendimento.
-        <br /><br />
-        Esta Política de Privacidade tem como objetivo explicar de forma clara e transparente como
-        coletamos, utilizamos, armazenamos e protegemos seus dados pessoais, em conformidade com a{" "}
-        <strong>Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)</strong>.
-      </p>
+      <>
+        <p>
+          O <strong>Grupo Maya</strong> (Cemitérios e Crematórios São Paulo SPE S.A., CNPJ 48.222.338/0001-14),
+          com sede operacional na <strong>Av. Pacaembu, 1396 — Pacaembu, São Paulo – SP</strong>,
+          é o responsável pelo tratamento dos dados pessoais coletados por meio deste site e dos nossos
+          canais de atendimento.
+        </p>
+        <p>
+          Esta Política de Privacidade tem como objetivo explicar de forma clara e transparente como
+          coletamos, utilizamos, armazenamos e protegemos seus dados pessoais, em conformidade com a{" "}
+          <strong>Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)</strong>.
+        </p>
+      </>
     ),
   },
   {
@@ -90,7 +91,7 @@ const sections = [
     content: (
       <>
         <p>
-          O Cemitério Lajeado <strong>não vende nem comercializa</strong> seus dados pessoais.
+          O Grupo Maya <strong>não vende nem comercializa</strong> seus dados pessoais.
           Podemos compartilhá-los apenas nas seguintes situações:
         </p>
         <ul>
@@ -173,14 +174,13 @@ const sections = [
 ];
 
 export default function PrivacyPolicy() {
-  const isMobile = useIsMobile();
   return (
     <div className="bg-[#fbfbf9]">
       {/* ── Hero ── */}
       <PageHeroBanner
         badge="LEGAL · GRUPO MAYA"
         title="Política de Privacidade"
-        description="Última atualização: fevereiro de 2025. Saiba como coletamos, utilizamos e protegemos seus dados em conformidade com a LGPD."
+        description="Última atualização: fevereiro de 2025. Saiba como o Grupo Maya coleta, utiliza e protege seus dados em conformidade com a LGPD."
         image={LEGAL_BG}
       />
 
@@ -211,11 +211,11 @@ export default function PrivacyPolicy() {
               >
                 <span
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Google Sans', 'Inter', sans-serif",
                     fontSize: "11px",
-                    fontWeight: 500,
+                    fontWeight: 600,
                     color: "#C8963E",
-                    letterSpacing: "1.5px",
+                    letterSpacing: "2.4px",
                     minWidth: "20px",
                     flexShrink: 0,
                   }}
@@ -323,8 +323,8 @@ export default function PrivacyPolicy() {
                 {
                   icon: <Phone size={15} />,
                   label: "Telefone",
-                  value: "(11) 3195-2733",
-                  href: "tel:+551131952733",
+                  value: "0800 042 9020",
+                  href: "tel:08000429020",
                 },
                 {
                   icon: <MessageCircle size={15} />,
@@ -335,8 +335,8 @@ export default function PrivacyPolicy() {
                 {
                   icon: <MapPin size={15} />,
                   label: "Endereço",
-                  value: "R. Bergson, 347 – Vila Leopoldina, SP",
-                  href: "https://maps.google.com/?q=R.+Bergson,+347,+Vila+Leopoldina,+São+Paulo",
+                  value: "Av. Pacaembu, 1396 — Pacaembu, São Paulo, SP",
+                  href: "https://maps.google.com/?q=Av.+Pacaembu,+1396,+Pacaembu,+São+Paulo",
                 },
               ].map((item) => (
                 <a
@@ -352,7 +352,7 @@ export default function PrivacyPolicy() {
                     padding: "16px 18px",
                     backgroundColor: "#ffffff",
                     border: "1px solid #e8e8e4",
-                    borderRadius: "6px",
+                    borderRadius: "4px",
                     textDecoration: "none",
                     transition: "border-color 0.2s, box-shadow 0.2s",
                   }}
@@ -368,10 +368,10 @@ export default function PrivacyPolicy() {
                   <span style={{ color: "#C8963E" }}>{item.icon}</span>
                   <span
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Google Sans', 'Inter', sans-serif",
                       fontSize: "11px",
-                      fontWeight: 500,
-                      letterSpacing: "1px",
+                      fontWeight: 600,
+                      letterSpacing: "2.4px",
                       textTransform: "uppercase",
                       color: "#aaa",
                     }}
@@ -431,7 +431,7 @@ export default function PrivacyPolicy() {
             marginTop: "16px",
             padding: "28px 32px",
             backgroundColor: "#2B5E3A",
-            borderRadius: "8px",
+            borderRadius: "4px",
             textAlign: "center",
           }}
         >
@@ -444,7 +444,7 @@ export default function PrivacyPolicy() {
               lineHeight: 1.6,
             }}
           >
-            Cemitério Lajeado — Cuidamos de tudo para que você possa se despedir com tranquilidade.
+            Grupo Maya — Cuidamos de tudo para que você possa se despedir com tranquilidade.
           </p>
         </div>
       </main>

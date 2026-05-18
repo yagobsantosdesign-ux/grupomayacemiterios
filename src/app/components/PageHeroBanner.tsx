@@ -1,6 +1,8 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
 import { ButtonFlip } from "./ui/ButtonFlip";
+import { scrollToSection } from "../utils/scroll";
 
 // ─── WhatsApp SVG ─────────────────────────────────────────────────────────────
 function WhatsAppIcon() {
@@ -41,13 +43,20 @@ export function PageHeroBanner({
   image,
   imageAlt = "",
 }: PageHeroBannerProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
+
   const isExternalLink = cta?.href.startsWith("http");
 
   const handleCtaClick = () => {
     if (cta?.whatsapp) trackWhatsAppConversion();
     if (cta && !isExternalLink) {
       const id = cta.href.replace("#", "");
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      scrollToSection(id);
     }
   };
 
@@ -58,6 +67,7 @@ export function PageHeroBanner({
 
   return (
     <section
+      ref={sectionRef}
       className="page-hero relative w-full overflow-hidden"
       style={{
         background: "#0a0a0a",
@@ -67,11 +77,11 @@ export function PageHeroBanner({
       {/* Navbar offset — matches Hero.tsx */}
       <style>{`
         .page-hero {
-          margin-top: 108px;
+          margin-top: 68px;
         }
         @media (max-width: 767px) {
           .page-hero {
-            margin-top: 64px !important;
+            margin-top: 68px !important;
             height: 400px !important;
           }
         }
@@ -85,17 +95,25 @@ export function PageHeroBanner({
 
       {/* Background image */}
       <div aria-hidden="true" className="absolute inset-0 z-0 pointer-events-none">
-        <img
+        <motion.img
           src={image}
           alt={imageAlt}
-          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            y: bgY,
+            position: "absolute",
+            width: "100%",
+            height: "128%",
+            objectFit: "cover",
+            objectPosition: "center",
+            top: 0,
+          }}
         />
         {/* Gradient overlay — darkest on the left where text is */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.10) 100%)",
+              "linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.20) 100%)",
           }}
         />
       </div>
@@ -135,6 +153,7 @@ export function PageHeroBanner({
                 lineHeight: 1.15,
                 letterSpacing: "-1.5px",
                 whiteSpace: "pre-line",
+                textWrap: "balance",
               }}
             >
               {title}
@@ -150,6 +169,7 @@ export function PageHeroBanner({
                   fontWeight: 400,
                   lineHeight: "1.75",
                   color: "rgba(255,255,255,0.55)",
+                  textWrap: "pretty",
                   maxWidth: "480px",
                 }}
               >

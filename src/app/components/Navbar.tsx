@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
 import { ChevronDown, Phone, Menu, X } from "lucide-react";
 import logoImg from "figma:asset/9cd7c5467d03ab39a395856c6ffb12865b19d3e0.png";
+import { scrollToSection, scrollToTop } from "../utils/scroll";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -36,17 +37,19 @@ const NAV_ITEMS: NavItem[] = [
   {
     label: "Cemitérios",
     sub: [
-      { label: "Cemitério Lajeado", href: "#cemiterios", section: "cemiterios" },
-      { label: "Cemitério da Lapa", href: "#cemiterios", section: "cemiterios" },
-      { label: "Cemitério Campo Grande", href: "#cemiterios", section: "cemiterios" },
-      { label: "Cemitério Parelheiros", href: "#cemiterios", section: "cemiterios" },
-      { label: "Cemitério da Saudade", href: "#cemiterios", section: "cemiterios" },
+      { label: "Cemitério Lajeado", href: "https://cemiteriolajeado.com.br", external: true },
+      { label: "Cemitério da Lapa", href: "https://cemiteriolapa.com", external: true },
+      { label: "Cemitério Campo Grande", href: "https://cemiteriocampogrande.com", external: true },
+      { label: "Cemitério Parelheiros", href: "https://cemiterioparelheiros.com.br", external: true },
+      { label: "Cemitério da Saudade", href: "https://cemiteriosaudade.com.br", external: true },
     ],
   },
   {
     label: "Serviços",
-    href: "/servicos-funerarios",
-    internal: true,
+    sub: [
+      { label: "Serviços Funerários", href: "/servicos-funerarios", internal: true },
+      { label: "Serviços Cemiteriais", href: "/servicos-cemiteriais", internal: true },
+    ],
   },
   {
     label: "Recadastramento",
@@ -134,19 +137,13 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
 
   const navigateToSection = useCallback(
     (section: string) => {
       setMobileOpen(false);
       setOpenDropdown(null);
       if (location.pathname === "/") {
-        setTimeout(() => {
-          document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
-        }, 50);
+        scrollToSection(section);
       } else {
         sessionStorage.setItem("scrollTarget", section);
         navigate("/");
@@ -164,8 +161,10 @@ export function Navbar() {
         return;
       }
       if (item.internal && item.href) {
+        if (!item.href.includes("#")) {
+          scrollToTop(true);
+        }
         navigate(item.href);
-        window.scrollTo({ top: 0, behavior: "instant" });
         return;
       }
       if (item.href?.startsWith("http")) {
@@ -213,7 +212,7 @@ export function Navbar() {
             onClick={(e) => {
               e.preventDefault();
               if (location.pathname === "/") {
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                scrollToTop(false);
               } else {
                 navigate("/");
               }

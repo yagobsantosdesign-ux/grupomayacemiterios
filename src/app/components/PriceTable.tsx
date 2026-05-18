@@ -7,7 +7,7 @@ export function PriceTable() {
     <section
       id="tabela-de-precos"
       className="py-20 md:py-24 bg-white"
-      style={{ borderTop: "1px solid rgba(229,229,229,0.6)" }}
+      style={{}}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

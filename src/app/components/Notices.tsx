@@ -137,7 +137,7 @@ export function Notices() {
     <section
       id="avisos"
       className="py-20 md:py-24"
-      style={{ background: "#F7F6F2", borderTop: "1px solid rgba(229,229,229,0.6)" }}
+      style={{ background: "#F7F6F2" }}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 

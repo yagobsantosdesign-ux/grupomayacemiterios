@@ -48,7 +48,7 @@ export function Jazigos() {
     <section
       id="jazigos"
       className="py-24 md:py-32"
-      style={{ background: "#F7F6F2", borderTop: "1px solid rgba(229,229,229,0.6)" }}
+      style={{ background: "#F7F6F2" }}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
@@ -90,6 +90,7 @@ export function Jazigos() {
                 fontWeight: 400,
                 lineHeight: "1.7",
                 color: "#575757",
+                textWrap: "pretty",
               }}
             >
               Jazigos verticais ou tradicionais com pagamento facilitado. Fale com um consultor e encontre a melhor opção para sua família.

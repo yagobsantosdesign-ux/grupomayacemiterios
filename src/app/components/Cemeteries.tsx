@@ -13,42 +13,42 @@ const cemeteries = [
     region: "Zona Leste",
     address: "Estr. do Lajeado Velho, 1490\nGuaianases, São Paulo – SP",
     img: imgLageado,
-    mapsUrl: "https://maps.google.com/?q=Estr.+do+Lajeado+Velho,+1490,+Guaianases,+São+Paulo,+SP",
+    siteUrl: "https://cemiteriolajeado.com.br",
   },
   {
     name: "Cemitério da Lapa",
     region: "Zona Oeste",
     address: "R. Bergson, 347\nVila Leopoldina, São Paulo – SP",
     img: imgLapa,
-    mapsUrl: "https://maps.google.com/?q=R.+Bergson,+347,+Vila+Leopoldina,+São+Paulo,+SP",
+    siteUrl: "https://cemiteriolapa.com",
   },
   {
     name: "Cemitério Campo Grande",
     region: "Zona Sul",
     address: "Av. Nossa Senhora do Sabará, 1371\nCampo Grande, São Paulo – SP",
     img: imgCampoGrande,
-    mapsUrl: "https://maps.google.com/?q=Av.+Nossa+Senhora+do+Sabará,+1371,+Campo+Grande,+São+Paulo,+SP",
+    siteUrl: "https://cemiteriocampogrande.com",
   },
   {
     name: "Cemitério Parelheiros",
     region: "Zona Sul",
     address: "R. Amaro de Pontes, 237\nParelheiros, São Paulo – SP",
     img: imgParelheiros,
-    mapsUrl: "https://maps.google.com/?q=Rua+Amaro+de+Pontes,+237,+Parelheiros,+São+Paulo,+SP",
+    siteUrl: "https://cemiterioparelheiros.com.br",
   },
   {
     name: "Cemitério da Saudade",
     region: "Zona Leste",
     address: "R. Samuel de Carvalho, 60\nJd. São Sebastião, São Paulo – SP",
     img: imgSaudade,
-    mapsUrl: "https://maps.google.com/?q=Rua+Samuel+de+Carvalho,+60,+Jardim+São+Sebastião,+São+Paulo,+SP",
+    siteUrl: "https://cemiteriosaudade.com.br",
   },
 ];
 
 function CemeteryCard({ cemetery, featured = false }: { cemetery: typeof cemeteries[0]; featured?: boolean }) {
   return (
     <a
-      href={cemetery.mapsUrl}
+      href={cemetery.siteUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="group relative flex flex-col overflow-hidden border border-[#e0e0dc] bg-white hover:border-[#C8963E] hover:shadow-xl hover:shadow-[#C8963E]/8 hover:-translate-y-1 transition-all duration-400"
@@ -122,7 +122,7 @@ function CemeteryCard({ cemetery, featured = false }: { cemetery: typeof cemeter
             textTransform: "uppercase",
           }}
         >
-          VER NO MAPA
+          VISITAR SITE
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       </div>
@@ -137,7 +137,7 @@ export function Cemeteries() {
     <section
       id="cemiterios"
       className="py-24 md:py-32 bg-[#F7F7F5]"
-      style={{ borderTop: "1px solid rgba(229,229,229,0.6)" }}
+      style={{}}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 

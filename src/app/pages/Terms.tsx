@@ -1,5 +1,4 @@
 import { Phone, MessageCircle, MapPin } from "lucide-react";
-import { useIsMobile } from "../hooks/useIsMobile";
 import { trackWhatsAppConversion } from "../components/GoogleAnalytics";
 import { PageHeroBanner } from "../components/PageHeroBanner";
 
@@ -12,27 +11,39 @@ const sections = [
     content: (
       <>
         <p>
-          Ao acessar e utilizar o site <strong>cemiteriocampogrande.com</strong>, você declara que leu,
+          Ao acessar e utilizar o site <strong>grupomaya.com.br</strong>, você declara que leu,
           compreendeu e concorda com os presentes Termos de Serviço. Caso não concorde com qualquer
           disposição aqui prevista, recomendamos que não utilize nosso site.
         </p>
         <p>
           Estes Termos se aplicam a todos os visitantes, usuários e demais pessoas que acessem ou
-          utilizem os serviços oferecidos pelo Cemitério Lajeado.
+          utilizem os serviços oferecidos pelo Grupo Maya.
         </p>
       </>
     ),
   },
   {
     id: 2,
-    title: "Sobre o Cemitério Lajeado",
+    title: "Sobre o Grupo Maya",
     content: (
       <>
         <p>
-          O Cemitério Lajeado, administrado pelo <strong>Grupo Maya</strong>, é uma empresa
-          prestadora de serviços funerários localizada na{" "}
-          <strong>Estrada do Lajeado Velho, nº 1490 – Vila Independente, São Paulo – SP</strong>.
+          O <strong>Grupo Maya</strong> — razão social <strong>Cemitérios e Crematórios São Paulo SPE S.A.</strong>,
+          CNPJ <strong>48.222.338/0001-14</strong> — é uma empresa concessionária de serviços
+          funerários e cemiteriais, atuando sob concessão do Bloco 3 da Prefeitura Municipal de São Paulo,
+          com sede operacional na <strong>Av. Pacaembu, 1396 — Pacaembu, São Paulo – SP</strong>.
         </p>
+        <p>
+          O Grupo administra cinco cemitérios e dez agências funerárias distribuídos pela cidade
+          de São Paulo, sob supervisão da SP Regula. Os cemitérios são:
+        </p>
+        <ul>
+          <li>Cemitério Campo Grande — Zona Sul</li>
+          <li>Cemitério Lajeado — Zona Leste (fundado em 1904)</li>
+          <li>Cemitério da Lapa — Zona Oeste (fundado em 1918)</li>
+          <li>Cemitério Parelheiros — Zona Sul</li>
+          <li>Cemitério da Saudade — Zona Leste (fundado em 1960)</li>
+        </ul>
         <p>Atuamos com os seguintes serviços:</p>
         <ul>
           <li>Funeral completo e sepultamento</li>
@@ -56,7 +67,7 @@ const sections = [
     content: (
       <>
         <p>
-          O site <strong>cemiteriocampogrande.com</strong> tem caráter informativo e comercial,
+          O site <strong>grupomaya.com.br</strong> tem caráter informativo e comercial,
           destinado a apresentar nossos serviços e facilitar o contato com nossa equipe.
         </p>
         <p>Ao utilizar o site, você se compromete a:</p>
@@ -93,13 +104,13 @@ const sections = [
     content: (
       <>
         <p>
-          O Cemitério Lajeado disponibiliza atendimento 24 horas por telefone e WhatsApp para
+          O Grupo Maya disponibiliza atendimento 24 horas por telefone e WhatsApp para
           situações de urgência. O atendimento pelo site (formulário de contato) está sujeito ao
           horário de disponibilidade da equipe responsável e pode não ter resposta imediata.
         </p>
         <p className="notice">
           Para situações urgentes, recomendamos o contato direto pelo telefone{" "}
-          <strong>(11) 3195-2733</strong> ou WhatsApp <strong>(11) 93422-3751</strong>.
+          <strong>0800 042 9020</strong> ou WhatsApp <strong>(11) 93422-3751</strong>.
         </p>
       </>
     ),
@@ -111,7 +122,7 @@ const sections = [
       <>
         <p>
           Todo o conteúdo disponível neste site — incluindo textos, imagens, logotipos, layout e demais
-          elementos — é de propriedade do Cemitério Lajeado ou de seus respectivos titulares,
+          elementos — é de propriedade do Grupo Maya ou de seus respectivos titulares,
           protegido pela legislação brasileira de direitos autorais e propriedade intelectual.
         </p>
         <p>
@@ -126,7 +137,7 @@ const sections = [
     title: "Limitação de Responsabilidade",
     content: (
       <>
-        <p>O Cemitério Lajeado não se responsabiliza por:</p>
+        <p>O Grupo Maya não se responsabiliza por:</p>
         <ul>
           <li>Danos decorrentes do uso inadequado das informações disponíveis no site;</li>
           <li>Indisponibilidade temporária do site por razões técnicas, manutenção ou força maior;</li>
@@ -146,7 +157,7 @@ const sections = [
     content: (
       <p>
         Nosso site pode conter links para sites externos, como redes sociais ou parceiros. Esses links
-        são fornecidos apenas para sua conveniência, e o Cemitério Lajeado não tem controle sobre
+        são fornecidos apenas para sua conveniência, e o Grupo Maya não tem controle sobre
         o conteúdo, políticas ou práticas desses sites, não se responsabilizando por eles.
       </p>
     ),
@@ -167,7 +178,7 @@ const sections = [
     title: "Modificações nos Termos",
     content: (
       <p>
-        O Cemitério Lajeado reserva-se o direito de alterar estes Termos de Serviço a qualquer
+        O Grupo Maya reserva-se o direito de alterar estes Termos de Serviço a qualquer
         momento, sem aviso prévio. As alterações entrarão em vigor a partir da data de publicação no
         site. O uso continuado do site após eventuais alterações implica a aceitação dos novos termos.
       </p>
@@ -187,15 +198,13 @@ const sections = [
 ];
 
 export default function Terms() {
-  const isMobile = useIsMobile();
-
   return (
     <div className="bg-[#fbfbf9]">
       {/* ── Hero ── */}
       <PageHeroBanner
         badge="LEGAL · GRUPO MAYA"
         title="Termos de Serviço"
-        description="Última atualização: fevereiro de 2025. Leia as condições de uso do site e dos serviços do Cemitério Lajeado."
+        description="Última atualização: fevereiro de 2025. Leia as condições de uso do site e dos serviços do Grupo Maya."
         image={LEGAL_BG}
       />
 
@@ -226,11 +235,11 @@ export default function Terms() {
               >
                 <span
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Google Sans', 'Inter', sans-serif",
                     fontSize: "11px",
-                    fontWeight: 500,
+                    fontWeight: 600,
                     color: "#C8963E",
-                    letterSpacing: "1.5px",
+                    letterSpacing: "2.4px",
                     minWidth: "20px",
                     flexShrink: 0,
                   }}
@@ -243,7 +252,7 @@ export default function Terms() {
                     fontSize: "30px",
                     fontWeight: 400,
                     color: "#0a0a0a",
-                    lineHeight: "36px",
+                    lineHeight: "1.3",
                     letterSpacing: "-0.5px",
                   }}
                 >
@@ -255,7 +264,7 @@ export default function Terms() {
               <div
                 className="policy-body"
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'Google Sans', 'Inter', sans-serif",
                   fontSize: "15px",
                   lineHeight: "27px",
                   color: "#575757",
@@ -286,11 +295,11 @@ export default function Terms() {
           >
             <span
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Google Sans', 'Inter', sans-serif",
                 fontSize: "11px",
-                fontWeight: 500,
+                fontWeight: 600,
                 color: "#C8963E",
-                letterSpacing: "1.5px",
+                letterSpacing: "2.4px",
                 minWidth: "20px",
                 flexShrink: 0,
               }}
@@ -303,7 +312,7 @@ export default function Terms() {
                 fontSize: "30px",
                 fontWeight: 400,
                 color: "#0a0a0a",
-                lineHeight: "36px",
+                lineHeight: "1.3",
                 letterSpacing: "-0.5px",
               }}
             >
@@ -314,7 +323,7 @@ export default function Terms() {
           <div style={{ paddingLeft: "34px" }}>
             <p
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Google Sans', 'Inter', sans-serif",
                 fontSize: "15px",
                 lineHeight: "27px",
                 color: "#575757",
@@ -337,8 +346,8 @@ export default function Terms() {
                 {
                   icon: <Phone size={15} />,
                   label: "Telefone",
-                  value: "(11) 3195-2733",
-                  href: "tel:+551131952733",
+                  value: "0800 042 9020",
+                  href: "tel:08000429020",
                 },
                 {
                   icon: <MessageCircle size={15} />,
@@ -349,8 +358,8 @@ export default function Terms() {
                 {
                   icon: <MapPin size={15} />,
                   label: "Endereço",
-                  value: "R. Bergson, 347 – Vila Leopoldina, SP, CEP 05301-060",
-                  href: "https://maps.google.com/?q=R.+Bergson,+347,+Vila+Leopoldina,+São+Paulo",
+                  value: "Av. Pacaembu, 1396 — Pacaembu, São Paulo, SP",
+                  href: "https://maps.google.com/?q=Av.+Pacaembu,+1396,+Pacaembu,+São+Paulo",
                 },
               ].map((item) => (
                 <a
@@ -365,8 +374,8 @@ export default function Terms() {
                     gap: "6px",
                     padding: "16px 18px",
                     backgroundColor: "#ffffff",
-                    border: "1px solid #e8e8e4",
-                    borderRadius: "6px",
+                    border: "1px solid #e0e0dc",
+                    borderRadius: "4px",
                     textDecoration: "none",
                     transition: "border-color 0.2s, box-shadow 0.2s",
                   }}
@@ -376,17 +385,17 @@ export default function Terms() {
                       "0 4px 16px rgba(200,150,62,0.1)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "#e8e8e4";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#e0e0dc";
                     (e.currentTarget as HTMLElement).style.boxShadow = "none";
                   }}
                 >
                   <span style={{ color: "#C8963E" }}>{item.icon}</span>
                   <span
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Google Sans', 'Inter', sans-serif",
                       fontSize: "11px",
-                      fontWeight: 500,
-                      letterSpacing: "1px",
+                      fontWeight: 600,
+                      letterSpacing: "2.4px",
                       textTransform: "uppercase",
                       color: "#aaa",
                     }}
@@ -395,7 +404,7 @@ export default function Terms() {
                   </span>
                   <span
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Google Sans', 'Inter', sans-serif",
                       fontSize: "14px",
                       color: "#2d2d2d",
                       lineHeight: "20px",
@@ -415,7 +424,7 @@ export default function Terms() {
             marginTop: "16px",
             padding: "28px 32px",
             backgroundColor: "#2B5E3A",
-            borderRadius: "8px",
+            borderRadius: "4px",
             textAlign: "center",
           }}
         >
@@ -428,7 +437,7 @@ export default function Terms() {
               lineHeight: 1.6,
             }}
           >
-            Cemitério Lajeado — Cuidamos de tudo para que você possa se despedir com tranquilidade.
+            Grupo Maya — Cuidamos de tudo para que você possa se despedir com tranquilidade.
           </p>
         </div>
       </main>

@@ -118,7 +118,7 @@ export function Agencies() {
     <section
       id="agencias"
       className="py-24 md:py-32"
-      style={{ background: "#fff", borderTop: "1px solid #e8e8e8" }}
+      style={{ background: "#fff" }}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
@@ -160,6 +160,7 @@ export function Agencies() {
                   lineHeight: "24px",
                   color: "#575757",
                   maxWidth: "520px",
+                  textWrap: "pretty",
                 }}
               >
                 Estamos presentes nos momentos mais delicados, oferecendo acolhimento, respeito e agilidade. Nossas agências estão preparadas para atender você e sua família com cuidado, empatia e total dedicação em cada detalhe.

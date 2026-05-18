@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { useNavigate, useLocation } from "react-router";
 import { ScrollReveal } from "./ScrollReveal";
+import { scrollToSection } from "../utils/scroll";
 
 const cards = [
   {
@@ -51,9 +52,7 @@ export function QuickAccess() {
 
   const navigateToSection = (sectionId: string) => {
     if (location.pathname === "/") {
-      setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-      }, 50);
+      scrollToSection(sectionId);
     } else {
       sessionStorage.setItem("scrollTarget", sectionId);
       navigate("/");

@@ -3,11 +3,18 @@ import { Outlet, useLocation } from "react-router";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import Lenis from "lenis";
+import { registerLenis, unregisterLenis, scrollToTop, scrollToSection } from "../utils/scroll";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    if (window.location.hash) return;
+    const target = sessionStorage.getItem("scrollTarget");
+    scrollToTop(true);
+    if (target) {
+      sessionStorage.removeItem("scrollTarget");
+      setTimeout(() => scrollToSection(target), 500);
+    }
   }, [pathname]);
   return null;
 }
@@ -21,6 +28,8 @@ export function RootLayout() {
       touchMultiplier: 1.5,
     });
 
+    registerLenis(lenis);
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -30,6 +39,7 @@ export function RootLayout() {
     return () => {
       cancelAnimationFrame(id);
       lenis.destroy();
+      unregisterLenis();
     };
   }, []);
 

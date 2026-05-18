@@ -16,8 +16,6 @@ export function Partners() {
       className="relative bg-white overflow-hidden"
       style={{
         height: "80px",
-        borderTop: "1px solid #e0e0dc",
-        borderBottom: "1px solid #e0e0dc",
       }}
     >
       <div className="flex flex-col items-center justify-center size-full">
