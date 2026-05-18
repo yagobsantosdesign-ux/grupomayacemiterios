@@ -82,23 +82,6 @@ export function About() {
                 Dedicados a oferecer cuidado, conforto e dignidade.
               </h2>
 
-              {/* CTA Button */}
-              <ButtonFlip
-                as="a"
-                href="#sobre"
-                className="rounded-[8px]"
-                style={{
-                  backgroundColor: "#0a0a0a",
-                  color: "#fff",
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  padding: "14px 28px",
-                  letterSpacing: "0.3px",
-                }}
-              >
-                Sobre o Grupo
-              </ButtonFlip>
             </div>
 
             {/* Bottom: stats */}
