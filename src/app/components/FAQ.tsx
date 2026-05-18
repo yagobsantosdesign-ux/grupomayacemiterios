@@ -133,7 +133,7 @@ export function FAQ() {
               <h2
                 style={{
                   fontFamily: "'Sorts Mill Goudy', serif",
-                  fontSize: isMobile ? "36px" : "52px",
+                  fontSize: isMobile ? "34px" : "52px",
                   fontWeight: 400,
                   lineHeight: 1.1,
                   letterSpacing: "-1.5px",

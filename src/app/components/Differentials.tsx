@@ -274,11 +274,18 @@ export function Differentials() {
               {stats.map((s, i) => (
                 <div
                   key={i}
-                  className="py-6 md:py-0"
+                  className="py-5 md:py-0"
                   style={{
-                    borderLeft: i > 0 ? "1px solid #e8e8e8" : undefined,
-                    paddingLeft: i > 0 ? "32px" : undefined,
-                    paddingRight: i < stats.length - 1 ? "32px" : undefined,
+                    borderLeft: isMobile
+                      ? (i % 2 !== 0 ? "1px solid #e8e8e8" : undefined)
+                      : (i > 0 ? "1px solid #e8e8e8" : undefined),
+                    borderTop: isMobile && i >= 2 ? "1px solid #e8e8e8" : undefined,
+                    paddingLeft: isMobile
+                      ? (i % 2 !== 0 ? "20px" : undefined)
+                      : (i > 0 ? "32px" : undefined),
+                    paddingRight: isMobile
+                      ? (i % 2 === 0 ? "20px" : undefined)
+                      : (i < stats.length - 1 ? "32px" : undefined),
                   }}
                 >
                   <p

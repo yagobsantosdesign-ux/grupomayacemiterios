@@ -153,7 +153,7 @@ export function Services() {
             <ScrollReveal delay={0.1}>
               <h2
                 className="text-[#0a0a0a]"
-                style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", maxWidth: "520px", textWrap: "balance" }}
+                style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "34px" : "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", maxWidth: "520px", textWrap: "balance" }}
               >
                 Seu parceiro em serviços funerários completos
               </h2>

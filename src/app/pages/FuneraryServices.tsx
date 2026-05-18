@@ -278,7 +278,7 @@ export default function FuneraryServices() {
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.2px", textTransform: "uppercase", color: "#6b6b6b" }}>
                   SERVIÇOS DISPONÍVEIS
                 </p>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "30px" : "40px", fontWeight: 400, lineHeight: 1.2, letterSpacing: "-0.8px", color: "#0a0a0a", textWrap: "balance" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "34px" : "40px", fontWeight: 400, lineHeight: 1.2, letterSpacing: "-0.8px", color: "#0a0a0a", textWrap: "balance" }}>
                   Suporte completo em cada etapa
                 </h2>
               </div>
@@ -309,7 +309,7 @@ export default function FuneraryServices() {
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2px", textTransform: "uppercase", color: "#6b6b6b" }}>
                   SERVIÇOS CEMITERIAIS
                 </p>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "26px" : "34px", fontWeight: 400, lineHeight: 1.25, letterSpacing: "-0.5px", color: "#0a0a0a", textWrap: "balance" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "28px" : "34px", fontWeight: 400, lineHeight: 1.25, letterSpacing: "-0.5px", color: "#0a0a0a", textWrap: "balance" }}>
                   Precisa de um jazigo, exumação ou zeladoria?
                 </h2>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "1.7", color: "#575757", textWrap: "pretty" }}>

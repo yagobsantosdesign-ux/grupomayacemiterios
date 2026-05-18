@@ -325,7 +325,7 @@ Tipo da Sepultura: ${tipoSepultura}
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "34px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Solicite o seu recadastramento
                 </h2>
               </ScrollReveal>
@@ -599,7 +599,7 @@ Tipo da Sepultura: ${tipoSepultura}
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "34px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Perguntas Frequentes
                 </h2>
               </ScrollReveal>
@@ -636,7 +636,7 @@ Tipo da Sepultura: ${tipoSepultura}
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "34px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Presença em toda a cidade de São Paulo
                 </h2>
               </ScrollReveal>

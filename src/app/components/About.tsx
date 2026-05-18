@@ -41,7 +41,7 @@ export function About() {
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
         {/* ── Two-column hero ── */}
-        <div className="flex flex-col lg:flex-row gap-0 lg:gap-[60px] items-stretch pt-24 md:pt-32 pb-16 md:pb-24">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-[60px] items-stretch pt-24 md:pt-32 pb-16 md:pb-24">
 
           {/* LEFT — label + heading + stats */}
           <ScrollReveal
