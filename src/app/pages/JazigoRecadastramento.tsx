@@ -306,7 +306,7 @@ Tipo da Sepultura: ${tipoSepultura}
         image={imgHero}
         cta={{
           label: "Falar pelo WhatsApp",
-          href: "https://wa.me/5511934223751?text=Olá%2C%20gostaria%20de%20informações%20sobre%20o%20recadastramento%20de%20jazigos.",
+          href: "https://wa.me/5511934243013?text=Olá%2C%20gostaria%20de%20informações%20sobre%20o%20recadastramento%20de%20jazigos.",
           whatsapp: true,
           style: "primary",
         }}

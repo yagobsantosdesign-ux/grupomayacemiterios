@@ -1,4 +1,4 @@
-import { trackWhatsAppConversion } from "./GoogleAnalytics";
+﻿import { trackWhatsAppConversion } from "./GoogleAnalytics";
 
 export function FloatingButtons() {
   return (
@@ -62,7 +62,7 @@ export function FloatingButtons() {
 
         {/* WhatsApp */}
         <a
-          href="https://wa.me/5511934223751"
+          href="https://wa.me/5511934243013"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Falar pelo WhatsApp"

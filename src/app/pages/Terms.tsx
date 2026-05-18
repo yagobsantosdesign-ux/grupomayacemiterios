@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, MapPin } from "lucide-react";
+﻿import { Phone, MessageCircle, MapPin } from "lucide-react";
 import { trackWhatsAppConversion } from "../components/GoogleAnalytics";
 import { PageHeroBanner } from "../components/PageHeroBanner";
 
@@ -110,7 +110,7 @@ const sections = [
         </p>
         <p className="notice">
           Para situações urgentes, recomendamos o contato direto pelo telefone{" "}
-          <strong>0800 042 9020</strong> ou WhatsApp <strong>(11) 93422-3751</strong>.
+          <strong>0800 042 9020</strong> ou WhatsApp <strong>(11) 93424-3013</strong>.
         </p>
       </>
     ),
@@ -352,8 +352,8 @@ export default function Terms() {
                 {
                   icon: <MessageCircle size={15} />,
                   label: "WhatsApp",
-                  value: "(11) 93422-3751",
-                  href: "https://wa.me/5511934223751",
+                  value: "(11) 93424-3013",
+                  href: "https://wa.me/5511934243013",
                 },
                 {
                   icon: <MapPin size={15} />,

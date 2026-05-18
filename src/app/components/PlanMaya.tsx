@@ -1,4 +1,4 @@
-import { ScrollReveal } from "./ScrollReveal";
+﻿import { ScrollReveal } from "./ScrollReveal";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ButtonFlip } from "./ui/ButtonFlip";
@@ -114,7 +114,7 @@ export function PlanMaya() {
             <ScrollReveal delay={0.28}>
               <ButtonFlip
                 as="a"
-                href="https://wa.me/5511934223751"
+                href="https://wa.me/5511934243013"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={trackWhatsAppConversion}

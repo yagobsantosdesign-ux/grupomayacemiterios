@@ -167,7 +167,7 @@ function ServiceCard({ svc, index }: { svc: typeof services[0]; index: number })
           {/* CTA Button */}
           <div className="pt-2">
             <a
-              href={`https://wa.me/5511934223751?text=Olá%2C%20gostaria%20de%20solicitar%20o%20serviço%20de%20${encodeURIComponent(svc.title)}.`}
+              href={`https://wa.me/5511934243013?text=Olá%2C%20gostaria%20de%20solicitar%20o%20serviço%20de%20${encodeURIComponent(svc.title)}.`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackWhatsAppConversion}
@@ -226,7 +226,7 @@ export default function CemeteryServices() {
         image={imgHero}
         cta={{
           label: "Fale conosco",
-          href: "https://wa.me/5511934223751",
+          href: "https://wa.me/5511934243013",
           whatsapp: true,
           style: "primary",
         }}

@@ -124,7 +124,7 @@ export function Hero() {
             <div className="flex items-center gap-3 flex-wrap">
               <ButtonFlip
                 as="a"
-                href="https://wa.me/5511934223751"
+                href="https://wa.me/5511934243013"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={trackWhatsAppConversion}

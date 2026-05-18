@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+﻿import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavigate, useLocation } from "react-router";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
@@ -296,7 +296,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             {/* CTA — desktop only */}
             <a
-              href="https://wa.me/5511934223751"
+              href="https://wa.me/5511934243013"
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackWhatsAppConversion}
@@ -438,7 +438,7 @@ export function Navbar() {
               {/* CTA in mobile menu */}
               <div className="pt-8 pb-4">
                 <a
-                  href="https://wa.me/5511934223751"
+                  href="https://wa.me/5511934243013"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={trackWhatsAppConversion}

@@ -1,4 +1,4 @@
-import { ScrollReveal } from "./ScrollReveal";
+﻿import { ScrollReveal } from "./ScrollReveal";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
 
 function WhatsAppIcon() {
@@ -190,7 +190,7 @@ export function Jazigos() {
         <ScrollReveal delay={0.24}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a
-              href="https://wa.me/5511934223751"
+              href="https://wa.me/5511934243013"
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackWhatsAppConversion}

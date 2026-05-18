@@ -1,4 +1,4 @@
-import { useIsMobile } from "../hooks/useIsMobile";
+﻿import { useIsMobile } from "../hooks/useIsMobile";
 import { useState } from "react";
 import { ScrollReveal } from "./ScrollReveal";
 import { ButtonFlip } from "./ui/ButtonFlip";
@@ -172,7 +172,7 @@ export function Contact() {
               <div style={{ paddingTop: "8px" }}>
                 <ButtonFlip
                   as="a"
-                  href="https://wa.me/5511934223751"
+                  href="https://wa.me/5511934243013"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-[8px]"
