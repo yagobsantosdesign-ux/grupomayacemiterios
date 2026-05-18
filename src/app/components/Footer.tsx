@@ -231,7 +231,7 @@ export function Footer() {
               color: "#6b6b6b",
             }}
           >
-            Maya Serviços de Administração Cemiterial Ltda · CNPJ: 00.000.000/0001-00
+            Cemitérios e Crematórios São Paulo SPE S/A · CNPJ: 48.222.338/0001-14
           </p>
         </div>
       </div>

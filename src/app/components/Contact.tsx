@@ -6,7 +6,7 @@ import { ButtonFlip } from "./ui/ButtonFlip";
 const contactItems = [
   { label: "E-mail", value: "contato@grupomaya.com.br", href: "mailto:contato@grupomaya.com.br" },
   { label: "Telefone", value: "0800 042 9020", href: "tel:08000429020" },
-  { label: "Endereço", value: "Rua Fidencio Ramos, 195 – São Paulo, SP", href: "https://maps.google.com/?q=Rua+Fidencio+Ramos,+195,+São+Paulo,+SP" },
+  { label: "Endereço", value: "Av. Pacaembu, 1396 - Pacaembu, São Paulo - SP, 01234-000", href: "https://maps.google.com/?q=Av.+Pacaembu,+1396,+Pacaembu,+São+Paulo,+SP" },
   { label: "Atendimento", value: "24 horas, todos os dias", href: undefined },
 ];
 
