@@ -1,113 +1,81 @@
-﻿import imgSection from "../../assets/hero-funerarios.webp";
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import { scrollToSection, scrollToTop } from "../utils/scroll";
 import { Link } from "react-router";
 import { trackWhatsAppConversion } from "../components/GoogleAnalytics";
 import { PageHeroBanner } from "../components/PageHeroBanner";
 import {
-  HeartHandshake,
-  Car,
-  Flower2,
-  FlaskConical,
-  Flame,
-  FileText,
+  Building2,
+  Archive,
+  Leaf,
   MessageCircle,
   ArrowUpRight,
+  MapPin,
 } from "lucide-react";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { useIsMobile } from "../hooks/useIsMobile";
 
+import imgHero from "../../assets/hero-cemiteriais.webp";
+
 const services = [
   {
-    icon: HeartHandshake,
-    id: "velorio-e-sepultamento",
-    title: "Velório e Sepultamento",
-    tagline: "Uma despedida digna e acolhedora",
+    icon: Building2,
+    id: "venda-e-locacao-de-jazigo",
+    title: "Venda e Locação de Jazigo",
+    tagline: "Seu espaço para o descanso eterno",
     description:
-      "Organizamos velórios em ambiente acolhedor, com toda a cerimônia conduzida com respeito, privacidade e suporte completo à família — do preparo do corpo ao sepultamento.",
+      "Oferecemos jazigos verticais, jazigos familiares e sepulturas tradicionais, além de lápides personalizadas — com opções flexíveis de aquisição ou locação.",
     details: [
-      "Salas climatizadas para cerimônias religiosas ou civis",
-      "Preparação completa: higienização, tanatopraxia e estética",
-      "Sepultamento em jazigos próprios ou locados",
-      "Equipe de apoio presente durante toda a cerimônia",
+      "Jazigos verticais e jazigos familiares (múltiplas gavetas)",
+      "Jazigo temporário (locação) ou perpétuo (compra definitiva)",
+      "Lápides personalizadas para homenagear a memória",
+      "Columbários para guarda de urnas com cinzas de cremação",
+      "Consultoria para escolha do melhor espaço",
     ],
   },
   {
-    icon: Car,
-    id: "traslado-funerario",
-    title: "Traslado Funerário",
-    tagline: "Cuidado e segurança em cada trajeto",
+    icon: Leaf,
+    id: "zeladoria-e-jardinagem",
+    title: "Zeladoria e Jardinagem",
+    tagline: "Preservando a beleza e a tranquilidade do lugar",
     description:
-      "Transporte do ente querido desde o local do óbito até o cemitério, com veículos especializados, equipe treinada e total respeito à dignidade.",
+      "Nossa equipe cuida continuamente dos cemitérios para que permaneçam lugares de paz, dignidade e memória — dos jardins ao patrimônio histórico.",
     details: [
-      "Remoção do corpo do local de óbito (hospital, residência ou IML)",
-      "Traslado à agência funerária para preparação",
-      "Traslados intermunicipais e interestaduais com documentação",
-      "Frota própria de veículos devidamente licenciados",
+      "Manutenção dos jardins, alamedas e áreas de convivência",
+      "Conservação das estruturas de jazigos e do patrimônio histórico",
+      "Limpeza de túmulos e lápides, mediante solicitação",
+      "Plantio de vegetação nativa respeitando o caráter histórico",
+      "Equipe residente para atendimento no local",
     ],
   },
   {
-    icon: Flower2,
-    id: "coroa-de-flores",
-    title: "Coroa de Flores",
-    tagline: "Homenagens florais com significado",
+    icon: Archive,
+    id: "exumacao",
+    title: "Exumação",
+    tagline: "Cuidar da memória é um gesto de amor",
     description:
-      "Ampla variedade de arranjos florais — coroas, buquês e composições — para que a homenagem seja tão especial quanto a memória do ente querido.",
+      "Após 3 anos e 30 dias do sepultamento, a exumação é obrigatória. Acolhemos sua família com suporte humanizado em cada etapa desse processo.",
     details: [
-      "Coroas tradicionais, arranjos modernos e buquês personalizados",
-      "Flores naturais frescas ou artificiais de alta qualidade",
-      "Personalização com faixas, mensagens e cores do falecido",
-      "Entrega direta no velório ou no local de sepultamento",
+      "Atendimento nos cemitérios Lajeado, Lapa, Parelheiros e Saudade",
+      "Orientação sobre prazos e obrigações legais",
+      "Definição do destino: jazigo, ossuário ou cremação",
+      "Regularização de documentação junto ao cemitério",
+      "Suporte humanizado à família em cada etapa",
     ],
   },
-  {
-    icon: FlaskConical,
-    id: "laboratorio-funerario",
-    title: "Laboratório Funerário",
-    tagline: "Preservação com técnica e respeito",
-    description:
-      "Laboratório próprio no local para conservação, higienização e estética do corpo, permitindo que a família se despeça com serenidade.",
-    details: [
-      "Tanatopraxia: técnica de conservação do corpo",
-      "Higienização rigorosa com protocolos sanitários",
-      "Estética funerária — maquiagem, penteado e apresentação",
-      "Profissionais especializados e certificados",
-    ],
-  },
-  {
-    icon: Flame,
-    id: "cremacao",
-    title: "Cremação",
-    tagline: "Uma escolha respeitosa e cada vez mais comum",
-    description:
-      "Realizamos cremações com todo o cuidado que o momento exige, oferecendo uma alternativa ao sepultamento com acompanhamento completo.",
-    details: [
-      "Assessoria e obtenção das autorizações legais necessárias",
-      "Serviço realizado em parceiro credenciado com rastreabilidade",
-      "Entrega das cinzas à família em urna de sua escolha",
-      "Cerimônia de despedida antes ou após a cremação",
-    ],
-  },
-  {
-    icon: FileText,
-    id: "documentacao",
-    title: "Assessoria em Documentação",
-    tagline: "Burocracia resolvida para você focar no que importa",
-    description:
-      "Nossa equipe cuida de toda a gestão e liberação de documentos necessários para o registro e sepultamento, do início ao fim.",
-    details: [
-      "Declaração e registro de óbito em cartório",
-      "Emissão da Certidão de Óbito junto ao Cartório Civil",
-      "Autorização de sepultamento junto aos órgãos competentes",
-      "Acompanhamento de processos junto ao IML quando necessário",
-    ],
-  },
+];
+
+const cemeteries = [
+  "Cemitério Lajeado",
+  "Cemitério da Lapa",
+  "Cemitério Campo Grande",
+  "Cemitério Parelheiros",
+  "Cemitério da Saudade",
 ];
 
 function ServiceCard({ svc, index }: { svc: typeof services[0]; index: number }) {
   const Icon = svc.icon;
   return (
-    <ScrollReveal delay={index * 0.06}>
+    <ScrollReveal delay={index * 0.08}>
       <div
         id={svc.id}
         className="flex flex-col h-full"
@@ -137,9 +105,9 @@ function ServiceCard({ svc, index }: { svc: typeof services[0]; index: number })
           </span>
           <div
             className="w-9 h-9 flex items-center justify-center rounded-[6px]"
-            style={{ background: "rgba(200,150,62,0.1)" }}
+            style={{ background: "rgba(43,94,58,0.1)" }}
           >
-            <Icon size={17} strokeWidth={1.6} style={{ color: "#C8963E" }} />
+            <Icon size={17} strokeWidth={1.6} style={{ color: "#2B5E3A" }} />
           </div>
         </div>
 
@@ -179,7 +147,7 @@ function ServiceCard({ svc, index }: { svc: typeof services[0]; index: number })
               <li key={j} className="flex items-start gap-3">
                 <span
                   className="shrink-0 mt-[6px] w-[5px] h-[5px] rounded-full"
-                  style={{ background: "#C8963E" }}
+                  style={{ background: "#2B5E3A" }}
                 />
                 <span
                   style={{
@@ -203,7 +171,7 @@ function ServiceCard({ svc, index }: { svc: typeof services[0]; index: number })
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackWhatsAppConversion}
-              className="inline-flex items-center gap-2.5 group/btn transition-all duration-200"
+              className="inline-flex items-center gap-2 transition-all duration-200"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: "12px",
@@ -212,21 +180,18 @@ function ServiceCard({ svc, index }: { svc: typeof services[0]; index: number })
                 textTransform: "uppercase",
                 textDecoration: "none",
                 color: "#ffffff",
-                background: "#C8963E",
+                background: "#2B5E3A",
                 padding: "12px 22px",
                 borderRadius: "4px",
-                border: "1.5px solid #C8963E",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
+                border: "1.5px solid #2B5E3A",
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = "#b5842f";
-                (e.currentTarget as HTMLElement).style.borderColor = "#b5842f";
+                (e.currentTarget as HTMLElement).style.background = "#1f4429";
+                (e.currentTarget as HTMLElement).style.borderColor = "#1f4429";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = "#C8963E";
-                (e.currentTarget as HTMLElement).style.borderColor = "#C8963E";
+                (e.currentTarget as HTMLElement).style.background = "#2B5E3A";
+                (e.currentTarget as HTMLElement).style.borderColor = "#2B5E3A";
               }}
             >
               <MessageCircle size={14} strokeWidth={2} />
@@ -239,7 +204,7 @@ function ServiceCard({ svc, index }: { svc: typeof services[0]; index: number })
   );
 }
 
-export default function FuneraryServices() {
+export default function CemeteryServices() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -256,9 +221,9 @@ export default function FuneraryServices() {
       {/* ── Hero ── */}
       <PageHeroBanner
         badge="SERVIÇOS · GRUPO MAYA"
-        title="Serviços Funerários"
-        description="Conheça em detalhes todos os serviços oferecidos pelo Grupo Maya — do velório à documentação, com suporte humanizado e atendimento 24 horas."
-        image={imgSection}
+        title="Serviços Cemiteriais"
+        description="Jazigos, zeladoria, exumação e recadastramento — suporte completo para cuidar da memória dos seus entes queridos com respeito e humanidade."
+        image={imgHero}
         cta={{
           label: "Fale conosco",
           href: "https://wa.me/5511934223751",
@@ -266,6 +231,30 @@ export default function FuneraryServices() {
           style: "primary",
         }}
       />
+
+      {/* ── Cemitérios atendidos ── */}
+      <section className="border-b border-[#e8e8e4]" style={{ backgroundColor: "#ffffff" }}>
+        <div className="max-w-[1338px] mx-auto px-5 md:px-[52px] py-7">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <MapPin size={14} strokeWidth={2} style={{ color: "#2B5E3A" }} />
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "1.8px", textTransform: "uppercase", color: "#6b6b6b" }}>
+                Cemitérios atendidos
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {cemeteries.map((name) => (
+                <span
+                  key={name}
+                  style={{ fontFamily: "'Inter', sans-serif", fontSize: "13.5px", fontWeight: 400, color: "#2d2d2d" }}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Services grid ── */}
       <section className="py-20 md:py-28">
@@ -279,19 +268,19 @@ export default function FuneraryServices() {
                   SERVIÇOS DISPONÍVEIS
                 </p>
                 <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "30px" : "40px", fontWeight: 400, lineHeight: 1.2, letterSpacing: "-0.8px", color: "#0a0a0a", textWrap: "balance" }}>
-                  Suporte completo em cada etapa
+                  Cuidado contínuo com os seus
                 </h2>
               </div>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", lineHeight: "1.7", color: "#6b6b6b", maxWidth: "340px", textWrap: "pretty" }}>
-                Atendimento 24h, equipe especializada e suporte humanizado para acompanhar sua família com respeito.
+                Serviços cemiteriais com estrutura, orientação e atendimento humanizado nos cinco cemitérios do Grupo Maya.
               </p>
             </div>
           </ScrollReveal>
 
-          {/* Grid */}
+          {/* Grid — 3 colunas no desktop */}
           <div
             className="grid gap-3"
-            style={{ gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)" }}
+            style={{ gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)" }}
           >
             {services.map((svc, i) => (
               <ServiceCard key={svc.id} svc={svc} index={i} />
@@ -300,24 +289,24 @@ export default function FuneraryServices() {
         </div>
       </section>
 
-      {/* ── Cross-link: Serviços Cemiteriais ── */}
+      {/* ── Recadastramento callout ── */}
       <section className="bg-[#f0efeb] py-16 md:py-20">
         <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
           <ScrollReveal>
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div className="flex flex-col gap-3 max-w-[460px]">
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2px", textTransform: "uppercase", color: "#6b6b6b" }}>
-                  SERVIÇOS CEMITERIAIS
+                  RECADASTRAMENTO DE JAZIGO
                 </p>
                 <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "26px" : "34px", fontWeight: 400, lineHeight: 1.25, letterSpacing: "-0.5px", color: "#0a0a0a", textWrap: "balance" }}>
-                  Precisa de um jazigo, exumação ou zeladoria?
+                  Regularize a posse do seu jazigo
                 </h2>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "1.7", color: "#575757", textWrap: "pretty" }}>
-                  Conheça nossos serviços voltados aos cemitérios: venda e locação de jazigos, zeladoria, exumação e recadastramento.
+                  Garanta o direito de uso do seu jazigo para as próximas gerações. Atendemos os cinco cemitérios do Grupo Maya com processo simplificado.
                 </p>
               </div>
               <Link
-                to="/servicos-cemiteriais"
+                to="/recadastramento-de-jazigos"
                 className="inline-flex items-center gap-2 flex-shrink-0 group/cta"
                 style={{
                   fontFamily: "'Inter', sans-serif",
@@ -336,7 +325,7 @@ export default function FuneraryServices() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#0a0a0a"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "#0a0a0a"; }}
               >
-                Ver serviços cemiteriais
+                Saiba como recadastrar
                 <ArrowUpRight size={15} className="transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
               </Link>
             </div>

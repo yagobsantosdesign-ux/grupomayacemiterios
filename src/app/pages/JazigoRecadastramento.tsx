@@ -1,20 +1,17 @@
-import { useState } from "react";
-import { MapPin, ChevronDown, Check, AlertCircle, MessageCircle, ArrowUpRight } from "lucide-react";
-import { motion } from "motion/react";
+﻿import { useState } from "react";
+import { MapPin, ChevronDown, Check, AlertCircle, ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { ButtonFlip } from "../components/ui/ButtonFlip";
 import { trackWhatsAppConversion } from "../components/GoogleAnalytics";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { PageHeroBanner } from "../components/PageHeroBanner";
 
-import imgHero from "figma:asset/2c4c3756aa159176e9fac8dad63be01de92c47f4.png";
-import imgCemiterio from "figma:asset/ec7fbed93c58d7a7eda0608d5476c38a21e63f0c.png";
-import imgLageado from "figma:asset/598a21b94e6c6990f8409e67be049272aed8c784.png";
-import imgLapa from "figma:asset/fc327dd60e544345aa52c2b63d75329e9ab06d6f.png";
-import imgParelheiros from "figma:asset/2f1d62726cc42cc12a4e4edf77039db3b48d1564.png";
-import imgSaudade from "figma:asset/fe7b9e805228b0eb636a1dab76f22573c5dee6dc.png";
-import imgCampoGrande from "figma:asset/f96252e92aa1d51ca25eaa5118a3820d5ec9b390.png";
-import svgPaths from "../../imports/svg-0xn1amvdvy";
+import imgHero from "../../assets/recadastramento.webp";
+import imgLageado from "../../assets/cem-lageado.webp";
+import imgLapa from "../../assets/cem-lapa.webp";
+import imgParelheiros from "../../assets/cem-parelheiros.webp";
+import imgSaudade from "../../assets/cem-saudade.webp";
+import imgCampoGrande from "../../assets/cem-campo-grande.webp";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -24,24 +21,24 @@ const cemeteries = [
     address: "Av. Nossa Senhora do Sabará, nº 1371",
     neighborhood: "Campo Grande",
     cep: "CEP: 04685-003",
-    mapsUrl:
-      "https://maps.google.com/?q=Av.+Nossa+Senhora+do+Sabará,+1371,+Campo+Grande,+São+Paulo",
+    mapsUrl: "https://maps.google.com/?q=Av.+Nossa+Senhora+do+Sabará,+1371,+Campo+Grande,+São+Paulo",
+    siteUrl: "https://cemiteriocampogrande.com",
   },
   {
     name: "Cemitério Lajeado",
     address: "Estrada do Lajeado Velho, nº 1490",
     neighborhood: "Vila Independente",
     cep: "CEP: 08451-000",
-    mapsUrl:
-      "https://maps.google.com/?q=Estrada+do+Lajeado+Velho,+1490,+Vila+Independente,+São+Paulo",
+    mapsUrl: "https://maps.google.com/?q=Estrada+do+Lajeado+Velho,+1490,+Vila+Independente,+São+Paulo",
+    siteUrl: "https://cemiteriolajeado.com.br",
   },
   {
     name: "Cemitério da Lapa",
     address: "R. Bergson, 347",
     neighborhood: "Vila Leopoldina",
     cep: "CEP: 05301-060",
-    mapsUrl:
-      "https://maps.google.com/?q=R.+Bergson,+347,+Vila+Leopoldina,+São+Paulo",
+    mapsUrl: "https://maps.google.com/?q=R.+Bergson,+347,+Vila+Leopoldina,+São+Paulo",
+    siteUrl: "https://cemiteriolapa.com",
   },
   {
     name: "Cemitério Parelheiros",
@@ -49,14 +46,15 @@ const cemeteries = [
     neighborhood: "Parelheiros",
     cep: "CEP: 04890-360",
     mapsUrl: "https://maps.google.com/?q=Rua+Amaro+de+Pontes,+237,+Parelheiros,+São+Paulo",
+    siteUrl: "https://cemiterioparelheiros.com.br",
   },
   {
     name: "Cemitério da Saudade",
     address: "Rua Samuel de Carvalho, nº 60",
     neighborhood: "J. São Sebastião",
     cep: "CEP: 08041-030",
-    mapsUrl:
-      "https://maps.google.com/?q=Rua+Samuel+de+Carvalho,+60,+Jardim+São+Sebastião,+São+Paulo",
+    mapsUrl: "https://maps.google.com/?q=Rua+Samuel+de+Carvalho,+60,+Jardim+São+Sebastião,+São+Paulo",
+    siteUrl: "https://cemiteriosaudade.com.br",
   },
 ];
 
@@ -255,8 +253,8 @@ export default function JazigoRecadastramento() {
     try {
       const formData = new FormData();
       formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-      formData.append("subject", `Recadastramento de Jazigo – Cemitério Lajeado | ${nome} (${cemiterio})`);
-      formData.append("from_name", "Site Cemitério Lajeado");
+      formData.append("subject", `Recadastramento de Jazigo – Grupo Maya | ${nome} (${cemiterio})`);
+      formData.append("from_name", "Site Grupo Maya");
       formData.append("message", `
 === DADOS DO REQUERENTE ===
 Nome Completo: ${nome}
@@ -322,17 +320,17 @@ Tipo da Sepultura: ${tipoSepultura}
             {/* Left info */}
             <div className="flex flex-col gap-5 xl:w-[380px] flex-shrink-0">
               <ScrollReveal>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
-                  Formulário
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.2px", textTransform: "uppercase", color: "#6b6b6b" }}>
+                  Recadastramento
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Solicite o seu recadastramento
                 </h2>
               </ScrollReveal>
               <ScrollReveal delay={0.14}>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "26px", color: "#575757" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "1.7", color: "#6b6b6b", textWrap: "pretty" }}>
                   Preencha o formulário ao lado com seus dados e as informações do jazigo. Nossa equipe entrará em contato em breve para orientá-lo sobre os próximos passos.
                 </p>
               </ScrollReveal>
@@ -363,12 +361,12 @@ Tipo da Sepultura: ${tipoSepultura}
 
                   <form onSubmit={handleSubmit} encType="multipart/form-data" className="flex flex-col gap-8 w-full">
 
-                    <input type="hidden" name="subject" value="Novo Recadastramento - Cemitério Lajeado" />
-                    <input type="hidden" name="from_name" value="Site Cemitério Lajeado" />
+                    <input type="hidden" name="subject" value="Novo Recadastramento - Grupo Maya" />
+                    <input type="hidden" name="from_name" value="Site Grupo Maya" />
 
                     {/* ─��� Dados do Requerente ── */}
                     <div className="flex flex-col gap-5">
-                      <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "18px", fontWeight: 600, letterSpacing: "-0.3px", lineHeight: "24px", color: "#0a0a0a" }}>
+                      <p style={{ fontFamily: "'Google Sans', 'Inter', sans-serif", fontSize: "18px", fontWeight: 600, letterSpacing: "-0.3px", lineHeight: "24px", color: "#0a0a0a" }}>
                         Dados do Requerente
                       </p>
 
@@ -459,7 +457,7 @@ Tipo da Sepultura: ${tipoSepultura}
 
                     {/* ── Dados da Sepultura ── */}
                     <div className="flex flex-col gap-5">
-                      <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "18px", fontWeight: 600, letterSpacing: "-0.3px", lineHeight: "24px", color: "#0a0a0a" }}>
+                      <p style={{ fontFamily: "'Google Sans', 'Inter', sans-serif", fontSize: "18px", fontWeight: 600, letterSpacing: "-0.3px", lineHeight: "24px", color: "#0a0a0a" }}>
                         Dados da Sepultura
                       </p>
 
@@ -596,17 +594,17 @@ Tipo da Sepultura: ${tipoSepultura}
             {/* Left: heading */}
             <div className="flex flex-col gap-4 xl:w-[380px] flex-shrink-0">
               <ScrollReveal>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
-                  Dúvidas
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.2px", textTransform: "uppercase", color: "#6b6b6b" }}>
+                  Dúvidas Frequentes
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
                   Perguntas Frequentes
                 </h2>
               </ScrollReveal>
               <ScrollReveal delay={0.14}>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "26px", color: "#575757" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "1.7", color: "#6b6b6b", textWrap: "pretty" }}>
                   O recadastramento de jazigos e sepulturas é um processo essencial para manter as informações atualizadas e em conformidade com as normas legais.
                 </p>
               </ScrollReveal>
@@ -626,25 +624,25 @@ Tipo da Sepultura: ${tipoSepultura}
       </section>
 
       {/* ── Cemetery cards ── */}
-      <section className="bg-white" style={{ paddingTop: "112px", paddingBottom: "112px" }}>
+      <section className="py-20 md:py-28 bg-white">
         <div className="mx-auto px-5 md:px-[52px]" style={{ maxWidth: "1338px" }}>
-          <div className="flex flex-col gap-[96px]">
+          <div className="flex flex-col gap-12 md:gap-16">
 
             {/* Header */}
             <div className="flex flex-col gap-[16px]" style={{ maxWidth: "520px" }}>
               <ScrollReveal>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 500, letterSpacing: "2.5px", textTransform: "uppercase", color: "#C8963E" }}>
-                  Grupo Maya
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "2.2px", textTransform: "uppercase", color: "#6b6b6b" }}>
+                  Nossos Cemitérios
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "30px", fontWeight: 400, lineHeight: "36px", letterSpacing: "-0.5px", color: "#0a0a0a" }}>
-                  Nossos Cemitérios
+                <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: "1.15", letterSpacing: "-1px", color: "#0a0a0a" }}>
+                  Presença em toda a cidade de São Paulo
                 </h2>
               </ScrollReveal>
               <ScrollReveal delay={0.14}>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "26px", color: "#575757" }}>
-                  O Grupo Maya administra cemitérios em diferentes regiões de São Paulo para atender você com proximidade e cuidado.
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "1.7", color: "#6b6b6b", textWrap: "pretty" }}>
+                  5 unidades nas regiões Leste, Oeste e Sul de São Paulo para atender você com proximidade, estrutura e cuidado.
                 </p>
               </ScrollReveal>
             </div>
@@ -655,15 +653,15 @@ Tipo da Sepultura: ${tipoSepultura}
                 /* Mobile: stacked single column */
                 <div className="flex flex-col gap-4">
                   {[
-                    { name: "Cemitério Lajeado", address: "Estrada do Lajeado Velho,\nnº 1490, Vila Independente", mapsUrl: cemeteries[1].mapsUrl, img: imgLageado },
-                    { name: "Cemitério da Lapa", address: "R. Bergson, 347,\nVila Leopoldina", mapsUrl: cemeteries[2].mapsUrl, img: imgLapa },
-                    { name: "Cemitério Parelheiros", address: "Rua Amaro de Pontes,\nnº 237, Parelheiros.", mapsUrl: cemeteries[3].mapsUrl, img: imgParelheiros },
-                    { name: "Cemitério da Saudade", address: "Rua Samuel de Carvalho,\nnº 60J. São Sebastião", mapsUrl: cemeteries[4].mapsUrl, img: imgSaudade },
-                    { name: "Cemitério Campo Grande", address: "Av. Nossa Senhora do Sabará,\nnº 1371, Campo Grande", mapsUrl: cemeteries[0].mapsUrl, img: imgCampoGrande },
+                    { name: "Cemitério Lajeado", address: "Estrada do Lajeado Velho,\nnº 1490, Vila Independente", siteUrl: cemeteries[1].siteUrl, img: imgLageado },
+                    { name: "Cemitério da Lapa", address: "R. Bergson, 347,\nVila Leopoldina", siteUrl: cemeteries[2].siteUrl, img: imgLapa },
+                    { name: "Cemitério Parelheiros", address: "Rua Amaro de Pontes,\nnº 237, Parelheiros.", siteUrl: cemeteries[3].siteUrl, img: imgParelheiros },
+                    { name: "Cemitério da Saudade", address: "Rua Samuel de Carvalho,\nnº 60, J. São Sebastião", siteUrl: cemeteries[4].siteUrl, img: imgSaudade },
+                    { name: "Cemitério Campo Grande", address: "Av. Nossa Senhora do Sabará,\nnº 1371, Campo Grande", siteUrl: cemeteries[0].siteUrl, img: imgCampoGrande },
                   ].map((c) => (
                     <a
                       key={c.name}
-                      href={c.mapsUrl}
+                      href={c.siteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-white flex flex-col gap-[24px] p-[25px] rounded-[4px]"
@@ -689,14 +687,14 @@ Tipo da Sepultura: ${tipoSepultura}
                     style={{ gridTemplateRows: "1fr 1fr", height: "763px" }}
                   >
                     {[
-                      { name: "Cemitério Lajeado", address: "Estrada do Lajeado Velho,\nnº 1490, Vila Independente", mapsUrl: cemeteries[1].mapsUrl, img: imgLageado },
-                      { name: "Cemitério da Lapa", address: "R. Bergson, 347,\nVila Leopoldina", mapsUrl: cemeteries[2].mapsUrl, img: imgLapa },
-                      { name: "Cemitério Parelheiros", address: "Rua Amaro de Pontes,\nnº 237, Parelheiros.", mapsUrl: cemeteries[3].mapsUrl, img: imgParelheiros },
-                      { name: "Cemitério da Saudade", address: "Rua Samuel de Carvalho,\nnº 60, J. São Sebastião", mapsUrl: cemeteries[4].mapsUrl, img: imgSaudade },
+                      { name: "Cemitério Lajeado", address: "Estrada do Lajeado Velho,\nnº 1490, Vila Independente", siteUrl: cemeteries[1].siteUrl, img: imgLageado },
+                      { name: "Cemitério da Lapa", address: "R. Bergson, 347,\nVila Leopoldina", siteUrl: cemeteries[2].siteUrl, img: imgLapa },
+                      { name: "Cemitério Parelheiros", address: "Rua Amaro de Pontes,\nnº 237, Parelheiros.", siteUrl: cemeteries[3].siteUrl, img: imgParelheiros },
+                      { name: "Cemitério da Saudade", address: "Rua Samuel de Carvalho,\nnº 60, J. São Sebastião", siteUrl: cemeteries[4].siteUrl, img: imgSaudade },
                     ].map((c) => (
                       <a
                         key={c.name}
-                        href="#"
+                        href={c.siteUrl}
                         className="group bg-white flex flex-col gap-[24px] p-[25px] rounded-[4px]"
                         style={{ borderWidth: "1px", borderStyle: "solid", borderColor: "#e0e0dc", textDecoration: "none", width: "335px" }}
                       >
@@ -720,7 +718,7 @@ Tipo da Sepultura: ${tipoSepultura}
 
                   {/* Campo Grande — tall card */}
                   <a
-                    href="#"
+                    href={cemeteries[0].siteUrl}
                     className="group bg-white flex flex-col gap-[24px] p-[25px] rounded-[4px] flex-1"
                     style={{ borderWidth: "1px", borderStyle: "solid", borderColor: "#e0e0dc", textDecoration: "none" }}
                   >
@@ -743,83 +741,6 @@ Tipo da Sepultura: ${tipoSepultura}
               )}
             </ScrollReveal>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ── Closing banner ── */}
-      <section className="relative overflow-hidden" style={{ height: isMobile ? "auto" : "660px", minHeight: isMobile ? "500px" : "660px" }}>
-        {/* Background image */}
-        <div className="absolute inset-0 pointer-events-none">
-          <img alt="" src={imgCemiterio} className="absolute inset-0 max-w-none object-cover size-full" />
-        </div>
-
-        {/* Golden card */}
-        <div
-          className="relative z-10 w-full"
-          style={{ paddingTop: isMobile ? "60px" : "80px", paddingBottom: isMobile ? "60px" : "80px" }}
-        >
-          <div className="mx-auto px-5 md:px-[52px]" style={{ maxWidth: "1338px" }}>
-          <ScrollReveal>
-            <div
-              className="bg-[#C8963E] flex flex-col"
-              style={{
-                width: isMobile ? "100%" : "440px",
-                minHeight: "500px",
-                padding: "56px 48px",
-                position: "relative",
-              }}
-            >
-              {/* Icon */}
-              <div className="mb-7">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <path d={svgPaths.p2c717700} fill="white" fillOpacity="0.15" stroke="white" strokeOpacity="0.35" strokeWidth="1.5" />
-                  <path d={svgPaths.p10fc1080} fill="white" fillOpacity="0.5" />
-                </svg>
-              </div>
-
-              {/* Heading */}
-              <div className="flex flex-col mb-4">
-                <p style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "34px", lineHeight: "42.5px", letterSpacing: "-1px", color: "#ffffff" }}>
-                  Estamos disponíveis
-                </p>
-                <p style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "34px", lineHeight: "42.5px", letterSpacing: "-1px", color: "#ffffff" }}>
-                  24 horas por dia
-                </p>
-              </div>
-
-              {/* Paragraph */}
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", lineHeight: "24px", color: "rgba(255,255,255,0.7)", maxWidth: "344px" }}>
-                Em momentos difíceis, nossa equipe está pronta para orientar e acolher sua família com respeito e humanidade. Entre em contato agora pelo WhatsApp.
-              </p>
-
-              {/* CTA button */}
-              <div className="mt-[60px]">
-                <ButtonFlip
-                  as="a"
-                  href="https://wa.me/5511934223751?text=Olá%2C%20gostaria%20de%20informações%20sobre%20o%20recadastramento%20de%20jazigos."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={trackWhatsAppConversion}
-                  className="bg-white rounded-[4px]"
-                  style={{
-                    width: "135px",
-                    height: "48px",
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "15px",
-                    fontWeight: 500,
-                    color: "#0a0a0a",
-                    textDecoration: "none",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  Fale conosco
-                </ButtonFlip>
-              </div>
-            </div>
-          </ScrollReveal>
           </div>
         </div>
       </section>

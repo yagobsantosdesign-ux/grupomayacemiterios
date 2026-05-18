@@ -1,9 +1,9 @@
-import imgLageado from "figma:asset/598a21b94e6c6990f8409e67be049272aed8c784.png";
-import imgLapa from "figma:asset/fc327dd60e544345aa52c2b63d75329e9ab06d6f.png";
-import imgParelheiros from "figma:asset/2f1d62726cc42cc12a4e4edf77039db3b48d1564.png";
-import imgSaudade from "figma:asset/fe7b9e805228b0eb636a1dab76f22573c5dee6dc.png";
-import imgCampoGrande from "figma:asset/f96252e92aa1d51ca25eaa5118a3820d5ec9b390.png";
-import lapaBg from "../../assets/differentials-lapa.png";
+﻿import imgLageado from "../../assets/cem-lageado.webp";
+import imgLapa from "../../assets/cem-lapa.webp";
+import imgParelheiros from "../../assets/cem-parelheiros.webp";
+import imgSaudade from "../../assets/cem-saudade.webp";
+import imgCampoGrande from "../../assets/cem-campo-grande.webp";
+import lapaBg from "../../assets/differentials-lapa.webp";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { ScrollReveal } from "./ScrollReveal";
@@ -23,42 +23,42 @@ const cemeteries = [
   {
     name: "Cemitério do Lageado",
     region: "Zona Leste",
-    area: "54.000 m²",
+    address: "Estr. do Lajeado Velho, 1490 — Guaianases",
     founded: "1904",
     img: imgLageado,
-    href: "#",
+    href: "https://cemiteriolajeado.com.br",
   },
   {
     name: "Cemitério da Lapa",
     region: "Zona Oeste",
-    area: "75.000 m²",
+    address: "R. Bergson, 347 — Vila Leopoldina",
     founded: "1918",
     img: imgLapa,
-    href: "#",
+    href: "https://cemiteriolapa.com",
   },
   {
     name: "Cemitério Campo Grande",
     region: "Zona Sul",
-    area: "145.000 m²",
+    address: "Av. Nossa Senhora do Sabará, 1371 — Campo Grande",
     founded: null,
     img: imgCampoGrande,
-    href: "#",
+    href: "https://cemiteriocampogrande.com",
   },
   {
     name: "Cemitério Parelheiros",
     region: "Zona Sul",
-    area: "48.000 m²",
+    address: "R. Amaro de Pontes, 237 — Parelheiros",
     founded: null,
     img: imgParelheiros,
-    href: "#",
+    href: "https://cemiterioparelheiros.com.br",
   },
   {
     name: "Cemitério da Saudade",
     region: "Zona Leste",
-    area: "88.000 m²",
+    address: "R. Samuel de Carvalho, 60 — Jd. São Sebastião",
     founded: null,
     img: imgSaudade,
-    href: "#",
+    href: "https://cemiteriosaudade.com.br",
   },
 ];
 
@@ -88,7 +88,7 @@ function CemeteryCard({ cem, featured = false }: { cem: Cemetery; featured?: boo
         <img
           src={cem.img}
           alt={cem.name}
-          className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+          className="absolute inset-0 w-full h-full object-cover object-bottom group-hover:scale-[1.04] transition-transform duration-500"
         />
         <div
           className="absolute inset-0"
@@ -152,7 +152,7 @@ function CemeteryCard({ cem, featured = false }: { cem: Cemetery; featured?: boo
               color: "#6b6b6b",
             }}
           >
-            {cem.area}
+            {cem.address}
           </p>
         </div>
         <ArrowUpRight
@@ -170,7 +170,7 @@ function ParallaxPhoto({ isMobile }: { isMobile: boolean }) {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-14%", "14%"]);
 
   return (
     <ScrollReveal delay={0.05}>
@@ -192,10 +192,10 @@ function ParallaxPhoto({ isMobile }: { isMobile: boolean }) {
             position: "absolute",
             inset: 0,
             width: "100%",
-            height: "116%",
+            height: "128%",
             objectFit: "cover",
             objectPosition: "center",
-            top: "-8%",
+            top: "-14%",
           }}
         />
       </div>
@@ -242,6 +242,7 @@ export function Differentials() {
                   letterSpacing: "-1.5px",
                   color: "#0a0a0a",
                   maxWidth: "680px",
+                  textWrap: "balance",
                 }}
               >
                 A maior administradora de cemitérios públicos da cidade<br />de São Paulo.
@@ -254,6 +255,7 @@ export function Differentials() {
                   lineHeight: "24px",
                   color: "#575757",
                   maxWidth: "520px",
+                  textWrap: "pretty",
                 }}
               >
                 Com 5 unidades, 41 hectares de área urbana e 25 anos de concessão assegurados, o Grupo Maya carrega a responsabilidade de atender as famílias paulistanas com a seriedade que essa missão exige.

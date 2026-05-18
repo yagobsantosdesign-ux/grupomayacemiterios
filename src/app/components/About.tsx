@@ -1,6 +1,6 @@
-import aboutPhoto from "../../assets/about-photo.png"
-import aboutBg from "../../assets/about-bg.png"
-import logoWhite from "../../assets/logo-white.png"
+﻿import aboutPhoto from "../../assets/about-photo.webp"
+import aboutBg from "../../assets/about-bg.webp"
+import logoWhite from "../../assets/logo-white.webp"
 import { useIsMobile } from "../hooks/useIsMobile";
 import { ScrollReveal } from "./ScrollReveal";
 import { ButtonFlip } from "./ui/ButtonFlip";

@@ -1,7 +1,9 @@
-import jazigoImg from "../../assets/hero-bg.png";
-import { motion } from "motion/react";
+﻿import jazigoImg from "../../assets/hero-bg.webp";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
 import { ButtonFlip } from "./ui/ButtonFlip";
+import { scrollToSection } from "../utils/scroll";
 
 function WhatsAppIcon() {
   return (
@@ -12,22 +14,37 @@ function WhatsAppIcon() {
 }
 
 export function Hero() {
-  const scrollToSection = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
+
+  const scrollTo = (id: string) => scrollToSection(id);
 
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative w-full overflow-hidden"
       style={{ height: "100dvh", minHeight: "600px" }}
     >
       {/* Background image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <motion.img
           src={jazigoImg}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-center"
+          style={{
+            y: bgY,
+            position: "absolute",
+            width: "100%",
+            height: "128%",
+            objectFit: "cover",
+            objectPosition: "center",
+            top: 0,
+          }}
         />
         <div
           className="absolute inset-0"
@@ -81,6 +98,7 @@ export function Hero() {
                 letterSpacing: "-1.5px",
                 marginBottom: "24px",
                 maxWidth: "700px",
+                textWrap: "balance",
               }}
             >
               Tradição e cuidado para honrar quem você ama.
@@ -96,6 +114,7 @@ export function Hero() {
                 color: "rgba(255,255,255,0.55)",
                 maxWidth: "460px",
                 marginBottom: "40px",
+                textWrap: "pretty",
               }}
             >
               O Grupo Maya administra cemitérios e serviços funerários em São Paulo com décadas de experiência, atendimento humanizado e suporte integral às famílias.
@@ -112,8 +131,8 @@ export function Hero() {
                 className="px-6 py-3.5 rounded-[8px]"
                 innerClassName="gap-2.5"
                 style={{
-                  background: "#ffffff",
-                  color: "#0a0a0a",
+                  background: "#C8963E",
+                  color: "#ffffff",
                   fontFamily: "'Inter', sans-serif",
                   fontSize: "14px",
                   fontWeight: 600,
@@ -126,7 +145,7 @@ export function Hero() {
 
               <ButtonFlip
                 as="button"
-                onClick={() => scrollToSection("sobre")}
+                onClick={() => scrollTo("sobre")}
                 className="px-6 py-3.5 rounded-[8px]"
                 style={{
                   background: "rgba(255,255,255,0.08)",

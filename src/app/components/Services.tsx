@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link } from "react-router";
 import { ScrollReveal } from "./ScrollReveal";
 import { ArrowUpRight } from "lucide-react";
@@ -11,7 +11,7 @@ import YardRoundedIcon from "@mui/icons-material/YardRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import AssignmentTurnedInRoundedIcon from "@mui/icons-material/AssignmentTurnedInRounded";
 import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
-import imgPhoto1 from "../../assets/services-cemetery.png";
+import imgPhoto1 from "../../assets/services-cemetery.webp";
 import imgPhoto2 from "figma:asset/9e9e53106d3dba120f72b5f22c02a5a1218ef85c.png";
 import { useIsMobile } from "../hooks/useIsMobile";
 

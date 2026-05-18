@@ -1,9 +1,13 @@
-import { useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { ScrollReveal } from "./ScrollReveal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import testimonialRl from "../../assets/testimonial-rl.png";
-import testimonialMa from "../../assets/testimonial-ma.png";
+import testimonialRl from "../../assets/testimonial-rl.webp";
+import testimonialMa from "../../assets/testimonial-ma.webp";
+import testimonialCf from "../../assets/testimonial-cf.webp";
+import testimonialJa from "../../assets/testimonial-ja.webp";
+import testimonialFc from "../../assets/testimonial-fc.webp";
+import testimonialAm from "../../assets/testimonial-am.webp";
 
 const testimonials = [
   {
@@ -31,6 +35,7 @@ const testimonials = [
     role: "Família atendida — Cemitério Campo Grande",
     initials: "CF",
     color: "#4a7c5e",
+    photo: testimonialCf,
   },
   {
     id: 4,
@@ -39,8 +44,45 @@ const testimonials = [
     role: "Titular recadastrado — Cemitério Saudade",
     initials: "JA",
     color: "#8B6B3D",
+    photo: testimonialJa,
+  },
+  {
+    id: 5,
+    quote: "Quando perdemos meu pai, o Grupo Maya cuidou de absolutamente tudo com uma atenção que nos surpreendeu. Não tivemos que nos preocupar com nada nos momentos mais difíceis.",
+    name: "Fernanda R. Costa",
+    role: "Família atendida — Cemitério Parelheiros",
+    initials: "FC",
+    color: "#3D5C4A",
+    photo: testimonialFc,
+  },
+  {
+    id: 6,
+    quote: "Contratei o Plano Maya para minha família e fiquei muito satisfeito com a transparência e clareza das condições. Atendimento humano e sem pressão de venda.",
+    name: "Antonio Marcos P.",
+    role: "Cliente — Plano Maya Familiar",
+    initials: "AM",
+    color: "#6B4F3A",
+    photo: testimonialAm,
   },
 ];
+
+function easeInOutQuart(t: number) {
+  return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+}
+
+function smoothScrollTo(el: HTMLElement, target: number, duration = 600) {
+  const start = el.scrollLeft;
+  const distance = target - start;
+  if (Math.abs(distance) < 1) return;
+  const startTime = performance.now();
+  const step = (now: number) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    el.scrollLeft = start + distance * easeInOutQuart(progress);
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
 
 export function Testimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -49,18 +91,46 @@ export function Testimonials() {
 
   const scrollTo = (index: number) => {
     const clamped = Math.max(0, Math.min(index, total - 1));
-    setCurrent(clamped);
     const track = trackRef.current;
     if (!track) return;
     const cards = track.querySelectorAll<HTMLElement>(".testimonial-card");
-    cards[clamped]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    const card = cards[clamped];
+    if (!card) return;
+    const leftPadding = (cards[0] as HTMLElement)?.offsetLeft ?? 0;
+    const targetScroll = clamped === 0 ? 0 : card.offsetLeft - leftPadding;
+    setCurrent(clamped);
+    smoothScrollTo(track, targetScroll);
   };
+
+  // Sync dots with manual drag-scroll, debounced so it fires after scroll settles
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let timer: ReturnType<typeof setTimeout>;
+    const handleScroll = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        const cards = track.querySelectorAll<HTMLElement>(".testimonial-card");
+        const leftPadding = (cards[0] as HTMLElement)?.offsetLeft ?? 0;
+        const scrollLeft = track.scrollLeft;
+        let closest = 0;
+        let minDist = Infinity;
+        cards.forEach((card, i) => {
+          const dist = Math.abs((card as HTMLElement).offsetLeft - leftPadding - scrollLeft);
+          if (dist < minDist) { minDist = dist; closest = i; }
+        });
+        setCurrent(closest);
+      }, 120);
+    };
+    track.addEventListener("scroll", handleScroll, { passive: true });
+    return () => { track.removeEventListener("scroll", handleScroll); clearTimeout(timer); };
+  }, []);
 
   return (
     <section
       id="depoimentos"
       className="py-24 md:py-32 overflow-hidden"
-      style={{ background: "#fff", borderTop: "1px solid rgba(229,229,229,0.5)" }}
+      style={{ background: "#fff" }}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
@@ -76,12 +146,12 @@ export function Testimonials() {
           {/* Title + description */}
           <div className="flex flex-col gap-3 flex-1">
             <ScrollReveal delay={0.08}>
-              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", color: "#0a0a0a", maxWidth: "460px" }}>
+              <h2 style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", color: "#0a0a0a", maxWidth: "460px", textWrap: "balance" }}>
                 O que as famílias dizem sobre nosso trabalho
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.12}>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: "1.7", color: "#6b6b6b", maxWidth: "480px" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", fontWeight: 400, lineHeight: "1.7", color: "#6b6b6b", maxWidth: "480px", textWrap: "pretty" }}>
                 Experiências reais de famílias que confiaram ao Grupo Maya um momento único e irreversível.
               </p>
             </ScrollReveal>
@@ -126,10 +196,9 @@ export function Testimonials() {
 
             {/* Text card */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.15 + i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="w-[280px] md:w-[360px] flex flex-col gap-5 p-7 bg-white rounded-[4px]"
               style={{ border: "1px solid #e0e0dc" }}
             >
@@ -146,7 +215,7 @@ export function Testimonials() {
                 "
               </span>
 
-              <p style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "18px", fontWeight: 400, lineHeight: "1.65", color: "#1a1a1a", letterSpacing: "-0.2px", flex: 1 }}>
+              <p style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "18px", fontWeight: 400, lineHeight: "1.65", color: "#1a1a1a", letterSpacing: "-0.2px", flex: 1, textWrap: "pretty" }}>
                 {t.quote}
               </p>
 
