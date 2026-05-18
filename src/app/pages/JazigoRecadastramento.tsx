@@ -235,16 +235,10 @@ export default function JazigoRecadastramento() {
   const [numSepultura, setNumSepultura] = useState("");
   const [numQuadra, setNumQuadra] = useState("");
   const [tipoSepultura, setTipoSepultura] = useState("");
-  const [arquivo, setArquivo] = useState<File | null>(null);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "fileError">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!arquivo) {
-      setStatus("fileError");
-      return;
-    }
 
     setStatus("loading");
 
@@ -271,21 +265,21 @@ Nº da Sepultura: ${numSepultura}
 Nº da Quadra: ${numQuadra}
 Tipo da Sepultura: ${tipoSepultura}
       `.trim());
-      formData.append("attachment", arquivo);
-
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
       const data = await res.json();
+      console.log("[Web3Forms response]", data);
       if (data.success) {
         setStatus("success");
         setNome(""); setEmail(""); setWhatsapp(""); setTelefone(""); setCep("");
         setEndereco(""); setNumero(""); setBairro(""); setComplemento("");
         setNomeSubconcessionario(""); setCemiterio(""); setNumSepultura("");
-        setNumQuadra(""); setTipoSepultura(""); setArquivo(null);
+        setNumQuadra(""); setTipoSepultura("");
         setTimeout(() => setStatus("idle"), 6000);
       } else {
+        console.error("[Web3Forms error]", data.message);
         setStatus("error");
         setTimeout(() => setStatus("idle"), 5000);
       }
@@ -510,46 +504,17 @@ Tipo da Sepultura: ${tipoSepultura}
                         </div>
                       </div>
 
-                      {/* Upload de documentos */}
-                      <div className="flex flex-col gap-2">
-                        <label style={{ ...LABEL_STYLE, color: "#C8963E" }}>
-                          Documento de concessão ou comprovante de titularidade; Identidade (RG) ou CNH; Comprovante de residência. *
-                        </label>
-                        <div className="flex items-center gap-3 flex-wrap">
-                          <label
-                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[4px] cursor-pointer transition-colors bg-[#0a0a0a] hover:bg-[#1e1e1e]"
-                            style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", fontWeight: 500, color: "#fff" }}
-                          >
-                            <input
-                              type="file"
-                              name="attachment"
-                              accept=".pdf,.jpg,.jpeg,.png"
-                              className="hidden"
-                              onChange={(e) => {
-                                const file = e.target.files?.[0] ?? null;
-                                if (file && file.size > 5 * 1024 * 1024) {
-                                  alert("O arquivo selecionado excede o limite de 5MB. Por favor, escolha um arquivo menor.");
-                                  e.target.value = "";
-                                  setArquivo(null);
-                                  return;
-                                }
-                                setArquivo(file);
-                              }}
-                            />
-                            Escolher Arquivo
-                          </label>
-                          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", color: arquivo ? "#0a0a0a" : "#888" }}>
-                            {arquivo ? arquivo.name : "Nenhum ficheiro selecionado"}
-                          </span>
-                        </div>
-                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", color: "#aaaaaa", lineHeight: "18px" }}>
-                          Tamanho máximo: 5MB. Formatos aceitos: PDF ou Imagem.
+                      {/* Nota sobre documentos */}
+                      <div
+                        className="flex flex-col gap-1 px-4 py-3 rounded-[4px]"
+                        style={{ backgroundColor: "#f7f6f2", borderLeft: "3px solid #C8963E" }}
+                      >
+                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", fontWeight: 600, color: "#C8963E", letterSpacing: "0.2px" }}>
+                          Documentos necessários
                         </p>
-                        {status === "fileError" && (
-                          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#ef4444" }}>
-                            Por favor, anexe ao menos um documento antes de enviar.
-                          </p>
-                        )}
+                        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#575757", lineHeight: "1.6" }}>
+                          Tenha em mãos: documento de concessão ou comprovante de titularidade, RG ou CNH e comprovante de residência. Nossa equipe solicitará o envio pelo WhatsApp durante o atendimento.
+                        </p>
                       </div>
                     </div>
 

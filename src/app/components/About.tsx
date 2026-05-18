@@ -1,5 +1,5 @@
 ﻿import aboutPhoto from "../../assets/about-photo.webp"
-import aboutBg from "../../assets/about-bg.webp"
+import aboutBg from "../../assets/about-bg-map.webp"
 import logoWhite from "../../assets/logo-white.webp"
 import { useIsMobile } from "../hooks/useIsMobile";
 import { ScrollReveal } from "./ScrollReveal";
