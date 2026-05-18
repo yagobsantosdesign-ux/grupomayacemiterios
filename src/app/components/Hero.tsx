@@ -1,4 +1,4 @@
-﻿import jazigoImg from "../../assets/hero-bg.webp";
+﻿import jazigoImg from "../../assets/hero-bg-new.webp";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { trackWhatsAppConversion } from "./GoogleAnalytics";
@@ -42,7 +42,7 @@ export function Hero() {
             width: "100%",
             height: "128%",
             objectFit: "cover",
-            objectPosition: "center",
+            objectPosition: "center 70%",
             top: 0,
           }}
         />
