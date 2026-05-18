@@ -4,6 +4,7 @@ import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import Lenis from "lenis";
 import { registerLenis, unregisterLenis, scrollToTop, scrollToSection } from "../utils/scroll";
+import { AnimatePresence, motion } from "motion/react";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,11 +44,23 @@ export function RootLayout() {
     };
   }, []);
 
+  const location = useLocation();
+
   return (
     <div className="min-h-screen" style={{ overflowX: "clip" }}>
       <ScrollToTop />
       <Navbar />
-      <Outlet />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          <Outlet />
+        </motion.div>
+      </AnimatePresence>
       <div style={{ backgroundColor: "#0A0A0A" }}>
         <Footer />
       </div>
