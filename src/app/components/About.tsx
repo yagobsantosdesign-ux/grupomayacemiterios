@@ -1,5 +1,6 @@
 import aboutPhoto from "../../assets/about-photo.png"
 import aboutBg from "../../assets/about-bg.png"
+import logoWhite from "../../assets/logo-white.png"
 import { useIsMobile } from "../hooks/useIsMobile";
 import { ScrollReveal } from "./ScrollReveal";
 import { ButtonFlip } from "./ui/ButtonFlip";
@@ -26,12 +27,16 @@ export function About() {
     <section
       id="sobre"
       className="bg-white relative overflow-hidden"
-      style={{
-        backgroundImage: `url(${aboutBg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center bottom",
-        backgroundSize: "cover",
-      }}
+      style={
+        isMobile
+          ? {}
+          : {
+              backgroundImage: `url(${aboutBg})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center bottom",
+              backgroundSize: "cover",
+            }
+      }
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
@@ -71,6 +76,7 @@ export function About() {
                   lineHeight: 1.15,
                   letterSpacing: "-1.5px",
                   color: "#0a0a0a",
+                  textWrap: "balance",
                 }}
               >
                 Dedicados a oferecer cuidado, conforto e dignidade.
@@ -155,37 +161,21 @@ export function About() {
               }}
             >
               <div className="mb-4">
-                <LeafIcon />
+                <img src={logoWhite} alt="Grupo Maya" style={{ height: "36px", width: "auto" }} />
               </div>
 
               <p
-                className="mb-5"
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: "16px",
                   fontWeight: 400,
                   lineHeight: "26px",
                   color: "#fff",
+                  textWrap: "pretty",
                 }}
               >
                 O Grupo Maya nasceu com a missão de acolher famílias em momentos de dor, oferecendo serviços funerários e cemiteriais com respeito, tradição e cuidado humano.
               </p>
-
-              <a
-                href="#sobre"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  color: "#fff",
-                  textDecoration: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                }}
-              >
-                Saiba mais →
-              </a>
             </div>
           </ScrollReveal>
         </div>

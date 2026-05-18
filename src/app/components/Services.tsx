@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { ScrollReveal } from "./ScrollReveal";
 import { ArrowUpRight } from "lucide-react";
+import { scrollToTop } from "../utils/scroll";
 import HandshakeRoundedIcon from "@mui/icons-material/HandshakeRounded";
 import DirectionsCarRoundedIcon from "@mui/icons-material/DirectionsCarRounded";
 import WhatshotRoundedIcon from "@mui/icons-material/WhatshotRounded";
@@ -10,7 +11,7 @@ import YardRoundedIcon from "@mui/icons-material/YardRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import AssignmentTurnedInRoundedIcon from "@mui/icons-material/AssignmentTurnedInRounded";
 import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
-import imgPhoto1 from "figma:asset/e4fde5664b55b0d3de11ca02db1110cf2f39225f.png";
+import imgPhoto1 from "../../assets/services-cemetery.png";
 import imgPhoto2 from "figma:asset/9e9e53106d3dba120f72b5f22c02a5a1218ef85c.png";
 import { useIsMobile } from "../hooks/useIsMobile";
 
@@ -72,12 +73,12 @@ const CARD_BG = "#f0efeb";
 
 type ServiceType = typeof funerarios[0];
 
-function ServiceCard({ svc, delay = 0, iconColor }: { svc: ServiceType; delay?: number; iconColor: string }) {
+function ServiceCard({ svc, delay = 0, iconColor, basePath }: { svc: ServiceType; delay?: number; iconColor: string; basePath: string }) {
   const Icon = svc.icon;
   return (
     <ScrollReveal delay={delay} className="h-full">
       <Link
-        to={`/servicos-funerarios#${svc.slug}`}
+        to={`${basePath}#${svc.slug}`}
         className="group h-full flex flex-col justify-between p-8 md:p-10 transition-all duration-300 hover:brightness-95"
         style={{ backgroundColor: CARD_BG, textDecoration: "none", minHeight: "380px" }}
       >
@@ -128,6 +129,7 @@ export function Services() {
   const services = activeTab === "funerarios" ? funerarios : cemiteriais;
   const isCemiterial = activeTab === "cemiteriais";
   const iconColor = isCemiterial ? "#2B5E3A" : "#C8963E";
+  const basePath = isCemiterial ? "/servicos-cemiteriais" : "/servicos-funerarios";
   const ctaBg = isCemiterial ? "#C8963E" : "#2B5E3A";
   const currentPhoto = isCemiterial ? imgPhoto2 : imgPhoto1;
 
@@ -135,7 +137,7 @@ export function Services() {
     <section
       id="solucoes"
       className="py-24 md:py-32 bg-white"
-      style={{ borderTop: "1px solid rgba(229,229,229,0.5)" }}
+      style={{}}
     >
       <div className="max-w-[1338px] mx-auto px-5 md:px-[52px]">
 
@@ -151,7 +153,7 @@ export function Services() {
             <ScrollReveal delay={0.1}>
               <h2
                 className="text-[#0a0a0a]"
-                style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", maxWidth: "520px" }}
+                style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-1px", maxWidth: "520px", textWrap: "balance" }}
               >
                 Seu parceiro em serviços funerários completos
               </h2>
@@ -187,7 +189,8 @@ export function Services() {
                         borderRadius: "6px",
                         backgroundColor: isActive ? "#0a0a0a" : "transparent",
                         color: isActive ? "#fff" : "#6b6b6b",
-                        transition: "all 0.2s ease",
+                        transition: "background-color 0.2s ease, color 0.2s ease",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {label}
@@ -203,7 +206,7 @@ export function Services() {
         {isMobile ? (
           <div className="flex flex-col gap-3">
             {services.map((svc, i) => (
-              <ServiceCard key={svc.slug} svc={svc} delay={i * 0.08} iconColor={iconColor} />
+              <ServiceCard key={svc.slug} svc={svc} delay={i * 0.08} iconColor={iconColor} basePath={basePath} />
             ))}
           </div>
         ) : (
@@ -217,15 +220,15 @@ export function Services() {
               </div>
             </ScrollReveal>
 
-            <ServiceCard svc={services[0]} delay={0.05} iconColor={iconColor} />
-            <ServiceCard svc={services[1]} delay={0.1} iconColor={iconColor} />
-            <ServiceCard svc={services[2]} delay={0.12} iconColor={iconColor} />
-            <ServiceCard svc={services[3]} delay={0.17} iconColor={iconColor} />
+            <ServiceCard svc={services[0]} delay={0.05} iconColor={iconColor} basePath={basePath} />
+            <ServiceCard svc={services[1]} delay={0.1} iconColor={iconColor} basePath={basePath} />
+            <ServiceCard svc={services[2]} delay={0.12} iconColor={iconColor} basePath={basePath} />
+            <ServiceCard svc={services[3]} delay={0.17} iconColor={iconColor} basePath={basePath} />
 
             <ScrollReveal className="row-span-1">
               <Link
-                to="/servicos-funerarios"
-                onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+                to={basePath}
+                onClick={() => scrollToTop(true)}
                 className="group h-full flex flex-col justify-between p-8 md:p-10 transition-all duration-300 hover:brightness-95"
                 style={{ backgroundColor: ctaBg, minHeight: "380px", textDecoration: "none", transition: "background-color 0.3s ease" }}
               >
@@ -237,7 +240,7 @@ export function Services() {
                     <ArrowUpRight size={20} color="#fff" />
                   </div>
                   <h3
-                    style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "22px", fontWeight: 400, letterSpacing: "-0.3px", lineHeight: "1.3", color: "#fff", maxWidth: "260px" }}
+                    style={{ fontFamily: "'Sorts Mill Goudy', serif", fontSize: "22px", fontWeight: 400, letterSpacing: "-0.3px", lineHeight: "1.3", color: "#fff", maxWidth: "260px", textWrap: "balance" }}
                   >
                     Conheça todos os serviços do Grupo Maya
                   </h3>
@@ -245,7 +248,7 @@ export function Services() {
                 <div className="mt-6">
                   <p
                     className="mb-6"
-                    style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", fontWeight: 400, lineHeight: "1.7", color: "rgba(255,255,255,0.8)" }}
+                    style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", fontWeight: 400, lineHeight: "1.7", color: "rgba(255,255,255,0.8)", textWrap: "pretty" }}
                   >
                     Do velório ao jazigo, do traslado à zeladoria — temos suporte completo para cada etapa com respeito e humanidade.
                   </p>
